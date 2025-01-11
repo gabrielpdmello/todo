@@ -20,6 +20,7 @@ body {
     display: grid;
     grid-template: 10% 90% / 25% 75%;
     height: 100%;
+    position: relative;
 }
 
 h1 {
@@ -48,13 +49,13 @@ h1 {
     padding: 0;
 }
 
-.project-item {
+.projects-list > li {
     padding: 0.5rem 2rem;
     border-radius: 10px;
     margin-bottom: 0.6rem;
 }
 
-.project-item:hover {
+.projects-list > li:hover {
     background-color: var(--terciary-color);
 }
 
@@ -125,7 +126,7 @@ h1 {
 }
 
 
-.new-project {
+.new-project-menu-toggle {
     display: flex;
     align-items: center;
     padding: 0.5rem 2rem;
@@ -134,8 +135,48 @@ h1 {
     color: white;
 }
 
+.new-project-menu-toggle-text {
+    flex: 1;
+}
+
 .new-project-title {
     flex: 1;
+}
+
+.new-project-menu {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-color);
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.new-project-title {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.new-project-input {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.new-project-button {
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
 }
 
 .add-icon {
@@ -147,3 +188,6 @@ h1 {
     
 }
 
+.hide {
+    display: none;
+}
