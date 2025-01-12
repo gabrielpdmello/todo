@@ -3,9 +3,9 @@ const newProject = function (title) {
 
     function getTasks(index) {
         if (index === undefined) {
-            console.log(tasks)
+            return tasks
         } else{
-            console.log(tasks[index]);
+            return tasks[index];
         }
     }
 

@@ -1,11 +1,12 @@
 import { projectList } from "./projectList"
 import { toggleMenu } from "./toggleMenu.js";
+import { displayAllTasks } from "./displayAllTasks.js";
 
 function projectDisplay() {
     const projectListElement = document.querySelector(".projects-list");
     const newProjectMenu = document.querySelector(".new-project-menu");
     
-    // this sorts the objects based on their title value. case-insensitive
+    // sorts the objects based on their title value. case-insensitive
     projectList.sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) {
             return -1
@@ -16,14 +17,16 @@ function projectDisplay() {
         return 0
     })
 
-    // this deletes every child of the list
+    // deletes every child of the list
     while(projectListElement.lastChild) {
         projectListElement.removeChild(projectListElement.lastChild);
     }
 
     const allTasks = document.createElement("li");
     allTasks.textContent = "All tasks";
-    // allTasks.addEventListener("click", displayAllTasks);
+    allTasks.addEventListener("click", () => {
+        displayAllTasks()
+    });
     projectListElement.appendChild(allTasks)
 
     projectList.forEach(element => {

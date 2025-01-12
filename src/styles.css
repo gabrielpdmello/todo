@@ -3,6 +3,10 @@
     --primary-color: #0B174D;
     --secondary-color: #A3B5DA;
     --terciary-color: #5E739C;
+    --task-item-bg-color: white;
+    --task-priority-low: green;
+    --task-priority-medium: yellow;
+    --task-priority-high: red;
 }
 
 * {
@@ -78,11 +82,11 @@ h1 {
 
 .task-item {
     padding: 0.5rem 2rem;
-    border-left: 3px solid red;
-    background-color: white;
+    background-color: var(--task-item-bg-color);
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: 1rem;
 }
 
 .is-done {
@@ -105,6 +109,7 @@ h1 {
     background-image: url("materials/icons8-eye-96.png");
     background-size: cover;
     margin: 0 0.5rem;
+    display: inline-block;
 
 }
 
@@ -114,6 +119,8 @@ h1 {
     background-image: url("materials/icons8-create-96.png");
     background-size: cover;
     margin: 0 0.5rem;
+    display: inline-block;
+
 }
 
 .delete-icon {
@@ -122,6 +129,8 @@ h1 {
     background-image: url("materials/icons8-delete.svg");
     background-size: cover;
     margin: 0 0.5rem;
+    display: inline-block;
+
 
 }
 
@@ -190,4 +199,29 @@ h1 {
 
 .hide {
     display: none;
+}
+
+.priority-low {
+    border-left: 3px solid var(--task-priority-low);
+}
+
+.priority-medium {
+    border-left: 3px solid var(--task-priority-medium);
+}
+
+.priority-high {
+    border-left: 3px solid var(--task-priority-high);
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.task-list {
+    margin-bottom: 3rem;
+}
+
+.all-tasks-title {
+    margin-bottom: 1rem;
 }
