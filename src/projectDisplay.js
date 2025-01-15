@@ -1,10 +1,12 @@
 import { projectList } from "./projectList"
-import { toggleMenu } from "./toggleMenu.js";
-import { displayAllTasks } from "./displayAllTasks.js";
+import { displayAllProjects } from "./displayAllProjects.js";
+import { newProjectMenu } from "./newProjectMenu.js";
+import { removeAllChild } from "./removeAllChild.js";
+import { displayProject } from "./displayProject.js";
 
 function projectDisplay() {
     const projectListElement = document.querySelector(".projects-list");
-    const newProjectMenu = document.querySelector(".new-project-menu");
+    const taskContainer = document.querySelector(".task-container");
     
     // sorts the objects based on their title value. case-insensitive
     projectList.sort((a, b) => {
@@ -17,37 +19,36 @@ function projectDisplay() {
         return 0
     })
 
-    // deletes every child of the list
-    while(projectListElement.lastChild) {
-        projectListElement.removeChild(projectListElement.lastChild);
-    }
+    removeAllChild(projectListElement);
 
     const allTasks = document.createElement("li");
     allTasks.textContent = "All tasks";
     allTasks.addEventListener("click", () => {
-        displayAllTasks()
+        displayAllProjects(taskContainer)
     });
     projectListElement.appendChild(allTasks)
 
-    projectList.forEach(element => {
+    projectList.forEach(project => {
         const item = document.createElement("li");
-        item.textContent = element.title;
-        // item.addEventListener("click", displayTasks());
+        item.textContent = project.title;
+        item.addEventListener("click", () => {
+            displayProject(project, taskContainer);
+        });
         projectListElement.appendChild(item);
     });
 
     const newProjectMenuToggle = document.createElement("li");
-    const newProjectMenuToggleText = document.createElement("span");
-    const addIcon = document.createElement("span");
-
     newProjectMenuToggle.classList.add("new-project-menu-toggle");
-    toggleMenu(newProjectMenuToggle, newProjectMenu);
+    const newProjectMenuToggleText = document.createElement("span");
     newProjectMenuToggleText.textContent = "Add project";
     newProjectMenuToggleText.classList.add("new-project-menu-toggle-text");
+    const addIcon = document.createElement("span");
     addIcon.classList.add("add-icon")
-
     newProjectMenuToggle.appendChild(newProjectMenuToggleText);
     newProjectMenuToggle.appendChild(addIcon);
+    newProjectMenuToggle.addEventListener("click", ()=> {
+        newProjectMenu(newProjectMenuToggle);
+    })
     projectListElement.appendChild(newProjectMenuToggle);
 
 }

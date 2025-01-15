@@ -1,20 +1,18 @@
 import { projectList } from "./projectList.js"
-import { displayTasks } from "./displayTasks.js";
-import { removeChild } from "./removeChild.js";
+import { displayProject } from "./displayProject.js";
+import { removeAllChild } from "./removeAllChild.js";
 
-function displayAllTasks() {
+function displayAllProjects() {
     const taskContainer = document.querySelector(".task-container");
-
-    removeChild(taskContainer);
+    removeAllChild(taskContainer);
 
     const allTasksTitle = document.createElement("h2");
     allTasksTitle.textContent = "All tasks";
     allTasksTitle.classList.add("all-tasks-title");
     taskContainer.appendChild(allTasksTitle);
-
     projectList.forEach(project => {
-        displayTasks(project, taskContainer, false);
+        displayProject(project, false);
     });
 }
 
-export {displayAllTasks}
+export {displayAllProjects}

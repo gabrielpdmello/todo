@@ -148,12 +148,12 @@ h1 {
     flex: 1;
 }
 
-.new-project-title {
-    flex: 1;
+.window-heading {
+    display: block;
+
 }
 
-.new-project-menu {
-    display: flex;
+.window {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -186,6 +186,7 @@ h1 {
     border: none;
     border-radius: 5px;
     padding: 0.5rem;
+    float: right;
 }
 
 .add-icon {

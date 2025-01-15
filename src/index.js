@@ -2,11 +2,16 @@ import "./styles.css";
 import { newProject } from "./newProject.js";
 import { projectList } from "./projectList.js";
 import { projectDisplay } from "./projectDisplay.js";
-import { displayAllTasks } from "./displayAllTasks.js";
+import { displayAllProjects } from "./displayAllProjects.js";
 
-const newProjectMenu = document.querySelector(".new-project-menu");
-const newProjectButton = document.querySelector(".new-project-button");
-const newProjectInput = document.querySelector(".new-project-input");
+const window = document.querySelector(".window");
+const taskContainer = document.querySelector(".task-container");
+
+document.addEventListener("click", e => {
+    if (!window.contains(e.target) && !window.classList.contains("hide")) {
+      window.classList.add("hide");
+    }
+});
 
 projectList.push(newProject("teste"));
 console.log(projectList);
@@ -27,14 +32,4 @@ projectList[1].newTask("title", "description", "dueDate", "high");
 console.log(projectList[1].getTasks());
 
 projectDisplay();
-displayAllTasks();
-
-newProjectButton.addEventListener("click", () => {
-    if (newProjectInput.value) {
-        projectList.push(newProject(newProjectInput.value));
-        projectDisplay();
-        newProjectInput.value = "";
-        newProjectMenu.classList.add("hide");
-        console.log(projectList);
-    }
-})
+displayAllProjects(taskContainer);
