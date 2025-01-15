@@ -1,25 +1,8 @@
-import { displayAllProjects } from "./displayAllProjects";
 import { removeAllChild } from "./removeAllChild";
 import { removeTask } from "./removeTask";
 
 function editTask(task, taskIndex, project, button) {
-    /* 
-    
-    essa função recebe os parâmetros task e elemento li da task
-    essa função deve:
-    remover child do window
-    adicionar ao window: input para titulo, descrição, dueDate, priority
-    esses inputs devem estar pre-preenchidos com as informações atuais da task
-    por fim incluir um botão que conclui a edição, que chama uma função que,
-    edita as propriedades da task
-    apaga todo child do taskContainer
-    renderiza última tab selecionada
-    adiciona hide no window
-
-    */
-
     const window = document.querySelector(".window");
-    const taskContainer = document.querySelector(".task-container");
     removeAllChild(window);
     const titleLabel = document.createElement("label");
     const titleInput = document.createElement("input");
