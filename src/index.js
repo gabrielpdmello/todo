@@ -1,7 +1,7 @@
 import "./styles.css";
 import { newProject } from "./newProject.js";
 import { projectList } from "./projectList.js";
-import { projectDisplay } from "./projectDisplay.js";
+import { displayProjectList } from "./displayProjectList.js";
 import { displayAllProjects } from "./displayAllProjects.js";
 
 const window = document.querySelector(".window");
@@ -31,5 +31,5 @@ projectList[1].newTask("title", "description", "dueDate", "high");
 
 console.log(projectList[1].getTasks());
 
-projectDisplay();
+displayProjectList();
 displayAllProjects(taskContainer);

@@ -1,7 +1,7 @@
 import { newProject } from "./newProject.js";
 import { removeAllChild } from "./removeAllChild.js";
 import { projectList } from "./projectList.js";
-import { projectDisplay } from "./projectDisplay.js";
+import { displayProjectList } from "./displayProjectList.js";
 import { displayProject } from "./displayProject.js";
 
 function newProjectMenu(button) {
@@ -26,7 +26,7 @@ function newProjectMenu(button) {
         if (newProjectInput.value) {
             const addNewProject = newProject(newProjectInput.value);
             projectList.push(addNewProject);
-            projectDisplay();
+            displayProjectList();
             displayProject(addNewProject);
             newProjectInput.value = "";
             window.classList.add("hide");

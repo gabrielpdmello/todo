@@ -1,10 +1,10 @@
-import { projectList } from "./projectList"
+import { projectList } from "./projectList.js"
 import { displayAllProjects } from "./displayAllProjects.js";
 import { newProjectMenu } from "./newProjectMenu.js";
 import { removeAllChild } from "./removeAllChild.js";
 import { displayProject } from "./displayProject.js";
 
-function projectDisplay() {
+function displayProjectList() {
     const projectListElement = document.querySelector(".projects-list");
     const taskContainer = document.querySelector(".task-container");
     
@@ -53,4 +53,4 @@ function projectDisplay() {
 
 }
 
-export { projectDisplay }
+export { displayProjectList }
