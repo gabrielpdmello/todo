@@ -10,9 +10,16 @@ function displayAllProjects() {
     allTasksTitle.textContent = "All tasks";
     allTasksTitle.classList.add("all-tasks-title");
     taskContainer.appendChild(allTasksTitle);
-    projectList.forEach(project => {
-        displayProject(project, false);
-    });
+
+    if (projectList.length === 0) {
+        const noProjects = document.createElement("p");
+        noProjects.textContent = "No projects. Create a new project to add new tasks.";
+        taskContainer.appendChild(noProjects);
+    } else {
+        projectList.forEach(project => {
+            displayProject(project, false, false);
+        });
+    }
 }
 
 export {displayAllProjects}
