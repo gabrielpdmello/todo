@@ -1,6 +1,6 @@
 import { viewMore } from "./viewMore";
-import { editTask } from "./editTask";
 import { removeTask } from "./removeTask";
+import { addTask } from "./addTask";
 
 function displayTask(project, task, taskIndex, container) {
     const item = document.createElement("li");
@@ -47,7 +47,7 @@ function displayTask(project, task, taskIndex, container) {
 
     editIcon.classList.add("edit-icon");
     editIcon.addEventListener("click", ()=> {
-        editTask(task, taskIndex, project, editIcon);
+        addTask(project, editIcon, task);
     })
 
     deleteIcon.classList.add("delete-icon");

@@ -11,15 +11,18 @@ function newProjectMenu(button) {
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
     heading.textContent = "New project";
+
     const newProjectLabel = document.createElement("label");
     newProjectLabel.textContent = "Type new project name:";
-    newProjectLabel.setAttribute("for", "new-project-input");
+    newProjectLabel.setAttribute("for", "new-project");
+
     const newProjectInput = document.createElement("input");
-    newProjectInput.classList.add("new-project-input");
+    newProjectInput.classList.add("project-input");
     newProjectInput.setAttribute("type", "text");
-    newProjectInput.setAttribute("id", "new-project-input");
+    newProjectInput.setAttribute("id", "new-project");
+    
     const newProjectButton = document.createElement("button");
-    newProjectButton.classList.add("new-project-button");
+    newProjectButton.classList.add("done-button");
     newProjectButton.textContent = "Add project";
 
     newProjectButton.addEventListener("click", () => {

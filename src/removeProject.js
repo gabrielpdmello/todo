@@ -3,7 +3,10 @@ import { displayProjectList } from "./displayProjectList";
 import { projectList } from "./projectList";
 import { removeAllChild } from "./removeAllChild";
 
-function removeProject(project, projectIndex, button) {
+function removeProject(project, button) {
+
+    const projectIndex = projectList.lastIndexOf(project);
+    
     const window = document.querySelector(".window");
     removeAllChild(window);
 
@@ -11,10 +14,13 @@ function removeProject(project, projectIndex, button) {
     heading.classList.add("window-heading");
     heading.textContent = "Remove project";
     const removeProjectText = document.createElement("p");
+    removeProjectText.classList.add("window-text");
     removeProjectText.textContent = `Do you want to remove project ${project.title}?`;
     const removeProjectButton = document.createElement("button");
+    removeProjectButton.classList.add("done-button");
     removeProjectButton.textContent = "Yes";
     const cancelProjectButton = document.createElement("button");
+    cancelProjectButton.classList.add("done-button");
     cancelProjectButton.textContent = "No";
 
     removeProjectButton.addEventListener("click", ()=> {
