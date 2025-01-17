@@ -22,7 +22,7 @@ html {
 
 body {
     display: grid;
-    grid-template: 10% 90% / 25% 75%;
+    grid-template: fit-content(8%) auto / 25% auto;
     height: 100%;
     position: relative;
 }
@@ -33,6 +33,7 @@ h1 {
     background-color: var(--primary-color);
     padding: 1rem;
     color: white;
+    
 }
 
 .project-container {
@@ -42,6 +43,7 @@ h1 {
     background-color: var(--secondary-color);
     height: 100%;
     padding: 1rem;
+    overflow: auto;
 }
 
 .project-container-title {
@@ -69,15 +71,45 @@ h1 {
     height: 100%;
     background-color: var(--task-container-bg-color);
     padding: 1rem;
+    overflow: auto;
 }
 
 .task-container-title {
     text-align: center;
 }
 
+.project-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    flex: 1;
+}
+
+.project-buttons {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 0.6rem 2rem;
+    border-radius: 10px;
+}
+
+.button--primary {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 0.4rem 0.6rem;
+    border-radius: 10px;
+    color: white;
+}
+
 .tasks-list {
     list-style: none;
     padding: 0;
+    margin-bottom: 3rem;
 }
 
 .task-item {
@@ -91,7 +123,6 @@ h1 {
 
 .is-done {
     margin-right: 1rem;
-    
 }
 
 .task-title {
@@ -113,6 +144,15 @@ h1 {
 
 }
 
+.add-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    background-image: url("materials/icons8-add-100.png");
+    background-size: cover;
+    margin: 0 0.5rem;
+    display: inline-block;
+}
+
 .edit-icon {
     width: 1.4rem;
     height: 1.4rem;
@@ -124,14 +164,16 @@ h1 {
 }
 
 .delete-icon {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.6rem;
+    height: 1.6rem;
     background-image: url("materials/icons8-delete.svg");
     background-size: cover;
     margin: 0 0.5rem;
     display: inline-block;
+}
 
-
+.white-icon {
+    filter: brightness(0) invert(1);
 }
 
 
@@ -148,15 +190,11 @@ h1 {
     flex: 1;
 }
 
-.window-heading {
-    display: block;
-
-}
-
 .window {
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 40%;
     transform: translate(-50%, -50%);
     background-color: var(--secondary-color);
     padding: 1rem 3rem;
@@ -165,41 +203,92 @@ h1 {
     justify-content: flex-end;
 }
 
-.new-project-title {
-    width: 100%;
-    margin-bottom: 0.5rem;
-}
-
-.new-project-input {
+.window input {
     width: 100%;
     border-radius: 5px;
-    margin-bottom: 1rem;
     border: none;
-    border-radius: 5px;
-    padding: 0.4rem;
+    padding: 0.2rem;
     font-size: 1rem;
 }
 
-.new-project-button {
-    color: white;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem;
-    float: right;
+.window input[type="checkbox"] {
+    display: inline-block;
+    width: fit-content;
+    margin-right: 0.5rem;
+    transform: translate(0, 1px);
 }
 
-.add-icon {
-    width: 1.4rem;
-    height: 1.4rem;
-    background-image: url("materials/icons8-add-100.png");
-    filter: brightness(0) invert(1);
-    background-size: cover;
-    
+.window select {
+    width: 100%;
+}
+
+.window textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 4rem;
+    max-height: 50vh;
+    white-space: pre-wrap;
+}
+
+.window-text {
+    display: block;
+    width: 100%;
+    background-color: var(--task-container-bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.window-text--multiline {
+    display: block;
+    width: 100%;
+    background-color: var(--task-container-bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+    min-height: 4rem;
+    max-height: 50vh;
+    resize: vertical;
 }
 
 .hide {
     display: none;
+}
+
+.window-heading {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.window-row-wrapper {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.window-wrapper-100 {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    width: 100%;
+}
+
+.window-wrapper-50 {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    width: 50%;
+}
+
+.done-button {
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    float: right;
+    margin: 0.8rem 0 0 0.8rem;
 }
 
 .priority-low {
@@ -212,15 +301,6 @@ h1 {
 
 .priority-high {
     border-left: 3px solid var(--task-priority-high);
-}
-
-.project-title {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-}
-
-.task-list {
-    margin-bottom: 3rem;
 }
 
 .all-tasks-title {
