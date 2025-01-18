@@ -68,6 +68,7 @@ function addTask(project, button, task = false) {
     descriptionWrapper.classList.add("window-wrapper-100");
 
     const doneButton = document.createElement("button");
+    doneButton.classList.add("button--primary");
     doneButton.classList.add("done-button");
     doneButton.textContent = "Add task";
 

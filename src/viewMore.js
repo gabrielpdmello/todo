@@ -25,16 +25,15 @@ function viewMore(project, task, taskIndex, button) {
     const isDoneWrapper = document.createElement("span");
     isDoneWrapper.classList.add("button--primary");
 
-    const isDoneLabel = document.createElement("label");
-    isDoneLabel.textContent = "Task done";
-    isDoneLabel.setAttribute("for", "isDone");
+    const isDoneText = document.createElement("span");
+    isDoneText.textContent = "Task done";
     
     const isDoneInput = document.createElement("input");
     isDoneInput.setAttribute("type", "checkbox");
-    isDoneInput.setAttribute("id", "isDone");
     // toggles isDone property value
     isDoneInput.addEventListener("click", () => {
       task.isDone = !task.isDone;
+      isDoneInput.checked = !isDoneInput.checked;
       displayAllProjects();
     })
     if (task.isDone === true) {
@@ -44,7 +43,13 @@ function viewMore(project, task, taskIndex, button) {
     }
 
     isDoneWrapper.appendChild(isDoneInput);
-    isDoneWrapper.appendChild(isDoneLabel);
+    isDoneWrapper.appendChild(isDoneText);
+
+    isDoneWrapper.addEventListener("click", ()=> {
+      task.isDone = !task.isDone;
+      isDoneInput.checked = !isDoneInput.checked;
+      displayAllProjects();
+    })
 
     const deleteWrapper = document.createElement("span");
     deleteWrapper.classList.add("button--primary");
@@ -53,7 +58,7 @@ function viewMore(project, task, taskIndex, button) {
     deleteText.textContent = "Delete task";
 
     const deleteIcon = document.createElement("span");
-    deleteIcon.classList.add("delete-icon");
+    deleteIcon.classList.add("delete-icon--no-hover");
     deleteIcon.classList.add("white-icon");
 
     deleteWrapper.appendChild(deleteText);

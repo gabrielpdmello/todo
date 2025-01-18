@@ -23,6 +23,7 @@ function newProjectMenu(button) {
     
     const newProjectButton = document.createElement("button");
     newProjectButton.classList.add("done-button");
+    newProjectButton.classList.add("button--primary");
     newProjectButton.textContent = "Add project";
 
     newProjectButton.addEventListener("click", () => {

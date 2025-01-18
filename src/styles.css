@@ -7,7 +7,12 @@
     --task-priority-low: green;
     --task-priority-medium: yellow;
     --task-priority-high: red;
-}
+    --filter-white: brightness(0) invert(1);
+    --filter-red: brightness(0) saturate(100%) invert(17%) sepia(96%) saturate(6502%) hue-rotate(358deg) brightness(111%) contrast(118%);
+    --filter-yellow: brightness(0) saturate(100%) invert(74%) sepia(64%) saturate(592%) hue-rotate(356deg) brightness(95%) contrast(101%);
+    --filter-light-blue: brightness(0) saturate(100%) invert(54%) sepia(66%) saturate(4169%) hue-rotate(195deg) brightness(93%) contrast(91%);
+
+}   
 
 * {
     margin: 0;
@@ -63,6 +68,7 @@ h1 {
 
 .projects-list > li:hover {
     background-color: var(--terciary-color);
+    cursor: pointer;
 }
 
 .task-container {
@@ -101,9 +107,19 @@ h1 {
     display: flex;
     align-items: center;
     background-color: var(--primary-color);
-    padding: 0.4rem 0.6rem;
+    padding: 0.4rem 1rem;
     border-radius: 10px;
     color: white;
+    border: none;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button--primary:hover {
+    background-color: var(--terciary-color);
+    cursor: pointer;
 }
 
 .tasks-list {
@@ -123,6 +139,7 @@ h1 {
 
 .is-done {
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .task-title {
@@ -144,6 +161,11 @@ h1 {
 
 }
 
+.view-more-icon:hover {
+    filter: var(--filter-light-blue);
+    cursor: pointer;
+}
+
 .add-icon {
     width: 1.4rem;
     height: 1.4rem;
@@ -160,7 +182,11 @@ h1 {
     background-size: cover;
     margin: 0 0.5rem;
     display: inline-block;
+}
 
+.edit-icon:hover {
+    filter: var(--filter-yellow);
+    cursor: pointer;
 }
 
 .delete-icon {
@@ -172,8 +198,22 @@ h1 {
     display: inline-block;
 }
 
+.delete-icon--no-hover {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-image: url("materials/icons8-delete.svg");
+    background-size: cover;
+    margin: 0 0.5rem;
+    display: inline-block;
+}
+
+.delete-icon:hover {
+    filter: var(--filter-red);
+    cursor: pointer;
+}
+
 .white-icon {
-    filter: brightness(0) invert(1);
+    filter: var(--filter-white);
 }
 
 
@@ -282,11 +322,6 @@ h1 {
 }
 
 .done-button {
-    color: white;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
     float: right;
     margin: 0.8rem 0 0 0.8rem;
 }

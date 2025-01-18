@@ -18,9 +18,11 @@ function removeProject(project, button) {
     removeProjectText.textContent = `Do you want to remove project ${project.title}?`;
     const removeProjectButton = document.createElement("button");
     removeProjectButton.classList.add("done-button");
+    removeProjectButton.classList.add("button--primary");
     removeProjectButton.textContent = "Yes";
     const cancelProjectButton = document.createElement("button");
     cancelProjectButton.classList.add("done-button");
+    cancelProjectButton.classList.add("button--primary");
     cancelProjectButton.textContent = "No";
 
     removeProjectButton.addEventListener("click", ()=> {

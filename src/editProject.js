@@ -19,6 +19,7 @@ function editProject(project, button) {
     projectTitleInput.value = project.title;
     const doneButton = document.createElement("button");
     doneButton.classList.add("done-button");
+    doneButton.classList.add("button--primary");
     doneButton.textContent = "Done";
 
     doneButton.addEventListener("click", () => {
