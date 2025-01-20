@@ -26,11 +26,18 @@ function displayTask(project, task, taskIndex, container) {
     // toggle isDone value
     checkbox.addEventListener("click", () => {
         task.isDone = !task.isDone;
+        if (task.isDone === true) {
+            checkbox.checked = true;
+            title.classList.add("task-title--done");
+        } else {
+            checkbox.checked = false;
+            title.classList.remove("task-title--done");
+        }
     })
+    
     if (task.isDone === true) {
         checkbox.checked = true;
-    } else {
-        checkbox.checked = false;
+        title.classList.add("task-title--done");
     }
     checkbox.classList.add("is-done");
 

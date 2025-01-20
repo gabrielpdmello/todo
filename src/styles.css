@@ -147,6 +147,10 @@ h1 {
     flex: 1;
 }
 
+.task-title--done {
+    text-decoration-line: line-through;
+}
+
 .due-date {
     margin: 0 0.5rem;
 }
