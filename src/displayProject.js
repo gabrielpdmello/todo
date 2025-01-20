@@ -1,11 +1,9 @@
 import { removeAllChild } from "./removeAllChild.js";
 import { displayTask } from "./displayTask.js";
-import { addTask } from "./addTask.js";
-import { editProject} from "./editProject.js";
-import { removeProject } from "./removeProject.js";
-import { projectList } from "./projectList.js";
+import { displayNewTaskMenu } from "./displayNewTaskMenu.js";
+import { displayEditTaskMenu} from "./displayEditTaskMenu.js";
+import { displayRemoveProjectMenu } from "./displayRemoveProjectMenu.js";
 
-// creates a list item with data from the task array
 function displayProject(project, emptyContainer = true, projectButtons = true) {
     const taskContainer = document.querySelector(".task-container");
 
@@ -40,21 +38,21 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
         newTaskButton.appendChild(addTaskText);
         newTaskButton.appendChild(addIcon);
         newTaskButton.addEventListener("click", ()=> {
-            addTask(project, newTaskButton);
+            displayNewTaskMenu(project, newTaskButton);
         })
 
         const editIcon = document.createElement("span");
         editIcon.classList.add("edit-icon");
 
         editIcon.addEventListener("click", ()=> {
-            editProject(project, editIcon);
+            displayEditTaskMenu(project, editIcon);
         });
         
         const deleteIcon = document.createElement("span");
         deleteIcon.classList.add("delete-icon");
 
         deleteIcon.addEventListener("click", ()=> {
-            removeProject(project, deleteIcon);
+            displayRemoveProjectMenu(project, deleteIcon);
         })
         
         buttonContainer.appendChild(newTaskButton);

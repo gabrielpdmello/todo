@@ -2,7 +2,7 @@ import { removeAllChild } from "./removeAllChild.js";
 import { displayProjectList } from "./displayProjectList.js";
 import { displayProject } from "./displayProject.js";
 
-function editProject(project, button) {
+function displayEditTaskMenu(project, button) {
     const window = document.querySelector(".window");
     removeAllChild(window);
 
@@ -43,4 +43,4 @@ function editProject(project, button) {
     });
 }
 
-export {editProject}
+export {displayEditTaskMenu}

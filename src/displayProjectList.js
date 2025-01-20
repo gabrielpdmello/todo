@@ -1,6 +1,6 @@
 import { projectList } from "./projectList.js"
 import { displayAllProjects } from "./displayAllProjects.js";
-import { newProjectMenu } from "./newProjectMenu.js";
+import { displayNewProjectMenu } from "./displayNewProjectMenu.js";
 import { removeAllChild } from "./removeAllChild.js";
 import { displayProject } from "./displayProject.js";
 
@@ -50,7 +50,7 @@ function displayProjectList() {
     newProjectMenuToggle.appendChild(newProjectMenuToggleText);
     newProjectMenuToggle.appendChild(addIcon);
     newProjectMenuToggle.addEventListener("click", ()=> {
-        newProjectMenu(newProjectMenuToggle);
+        displayNewProjectMenu(newProjectMenuToggle);
     })
     projectListElement.appendChild(newProjectMenuToggle);
 

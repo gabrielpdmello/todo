@@ -2,7 +2,7 @@ import { displayAllProjects } from "./displayAllProjects";
 import { removeAllChild } from "./removeAllChild";
 
 // show all task's info on a div
-function viewMore(project, task, taskIndex, button) {
+function displayViewMoreMenu(project, task, taskIndex, button) {
     const window = document.querySelector(".window");
     removeAllChild(window);
 
@@ -88,4 +88,4 @@ function viewMore(project, task, taskIndex, button) {
     });
 }
 
-export {viewMore}
+export {displayViewMoreMenu}

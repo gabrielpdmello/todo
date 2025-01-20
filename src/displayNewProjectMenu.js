@@ -4,7 +4,7 @@ import { projectList } from "./projectList.js";
 import { displayProjectList } from "./displayProjectList.js";
 import { displayProject } from "./displayProject.js";
 
-function newProjectMenu(button) {
+function displayNewProjectMenu(button) {
     const window = document.querySelector(".window");
     removeAllChild(window);
 
@@ -49,4 +49,4 @@ function newProjectMenu(button) {
     });
 }
 
-export {newProjectMenu}
+export {displayNewProjectMenu}

@@ -3,8 +3,7 @@ import { displayProjectList } from "./displayProjectList";
 import { projectList } from "./projectList";
 import { removeAllChild } from "./removeAllChild";
 
-function removeProject(project, button) {
-
+function displayRemoveProjectMenu(project, button) {
     const projectIndex = projectList.lastIndexOf(project);
     
     const window = document.querySelector(".window");
@@ -48,4 +47,4 @@ function removeProject(project, button) {
     });
 }
 
-export {removeProject};
+export {displayRemoveProjectMenu};

@@ -1,8 +1,7 @@
 import { displayProject } from "./displayProject";
 import { removeAllChild } from "./removeAllChild";
 
-function addTask(project, button, task = false) {
-
+function displayNewTaskMenu(project, button, taskEdit = false) {
     const window = document.querySelector(".window");
     removeAllChild(window);
 
@@ -72,15 +71,6 @@ function addTask(project, button, task = false) {
     doneButton.classList.add("done-button");
     doneButton.textContent = "Add task";
 
-    // not using an arrow function in case the event listener must be removed
-    function addTaskEventListener() {
-        if (titleInput.value && prioritySelect.value && dueDateInput.value && descriptionTextarea.value) {
-            project.newTask(titleInput.value, descriptionTextarea.value, dueDateInput.value, prioritySelect.value);
-            displayProject(project);
-            window.classList.add("hide");
-        }
-    };
-
     doneButton.addEventListener("click", addTaskEventListener);
 
     prioritySelect.appendChild(optionEmpty);
@@ -88,20 +78,27 @@ function addTask(project, button, task = false) {
     prioritySelect.appendChild(optionMedium);
     prioritySelect.appendChild(optionHigh);
 
-    if (task) {
+    if (taskEdit) {
         heading.textContent = "Edit task";
-        titleInput.value = task.title;
-        prioritySelect.value = task.priority;
-        dueDateInput.value = task.dueDate;
-        descriptionTextarea.value = task.description;
+        titleInput.value = taskEdit.title;
+        prioritySelect.value = taskEdit.priority;
+        dueDateInput.value = taskEdit.dueDate;
+        descriptionTextarea.value = taskEdit.description;
         doneButton.textContent = "Finish edit";
-        doneButton.removeEventListener("click", addTaskEventListener);
         doneButton.addEventListener("click", ()=> {
             if (titleInput.value && prioritySelect.value && dueDateInput.value && descriptionTextarea.value) {
-                task.title = titleInput.value;
-                task.priority = prioritySelect.value;
-                task.dueDate = dueDateInput.value;
-                task.description = descriptionTextarea.value;
+                taskEdit.title = titleInput.value;
+                taskEdit.priority = prioritySelect.value;
+                taskEdit.dueDate = dueDateInput.value;
+                taskEdit.description = descriptionTextarea.value;
+                displayProject(project);
+                window.classList.add("hide");
+            }
+        })
+    } else {
+        doneButton.addEventListener("click", ()=> {
+            if (titleInput.value && prioritySelect.value && dueDateInput.value && descriptionTextarea.value) {
+                project.newTask(titleInput.value, descriptionTextarea.value, dueDateInput.value, prioritySelect.value);
                 displayProject(project);
                 window.classList.add("hide");
             }
@@ -135,4 +132,4 @@ function addTask(project, button, task = false) {
     });
 }
 
-export {addTask};
+export {displayNewTaskMenu};

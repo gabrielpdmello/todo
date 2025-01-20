@@ -1,6 +1,6 @@
-import { viewMore } from "./viewMore";
+import { displayViewMoreMenu } from "./displayViewMoreMenu";
 import { removeTask } from "./removeTask";
-import { addTask } from "./addTask";
+import { displayNewTaskMenu } from "./displayNewTaskMenu";
 
 function displayTask(project, task, taskIndex, container) {
     const item = document.createElement("li");
@@ -42,12 +42,12 @@ function displayTask(project, task, taskIndex, container) {
 
     viewMoreIcon.classList.add("view-more-icon");
     viewMoreIcon.addEventListener("click", ()=> {
-        viewMore(project, task, taskIndex, viewMoreIcon);
+        displayViewMoreMenu(project, task, taskIndex, viewMoreIcon);
     })
 
     editIcon.classList.add("edit-icon");
     editIcon.addEventListener("click", ()=> {
-        addTask(project, editIcon, task);
+        displayNewTaskMenu(project, editIcon, task);
     })
 
     deleteIcon.classList.add("delete-icon");
