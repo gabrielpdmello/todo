@@ -1,7 +1,7 @@
 import { removeAllChild } from "./removeAllChild.js";
 import { displayTask } from "./displayTask.js";
 import { displayNewTaskMenu } from "./displayNewTaskMenu.js";
-import { displayEditTaskMenu} from "./displayEditTaskMenu.js";
+import { displayEditProjectMenu} from "./displayEditProjectMenu.js";
 import { displayRemoveProjectMenu } from "./displayRemoveProjectMenu.js";
 
 function displayProject(project, emptyContainer = true, projectButtons = true) {
@@ -45,7 +45,7 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
         editIcon.classList.add("edit-icon");
 
         editIcon.addEventListener("click", ()=> {
-            displayEditTaskMenu(project, editIcon);
+            displayEditProjectMenu(project, editIcon);
         });
         
         const deleteIcon = document.createElement("span");
