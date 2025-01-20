@@ -71,8 +71,6 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     doneButton.classList.add("done-button");
     doneButton.textContent = "Add task";
 
-    doneButton.addEventListener("click", addTaskEventListener);
-
     prioritySelect.appendChild(optionEmpty);
     prioritySelect.appendChild(optionLow);
     prioritySelect.appendChild(optionMedium);
