@@ -3,7 +3,7 @@ import { removeAllChild } from "./removeAllChild.js";
 import { display } from "./display.js";
 
 function displayProjectList() {
-    const projectListElement = document.querySelector(".projects-list");
+    const projectListElement = document.querySelector(".project-list");
     
     // sorts the objects based on its title value. case-insensitive
     projectList.sort((a, b) => {
@@ -20,6 +20,7 @@ function displayProjectList() {
 
     const allTasks = document.createElement("li");
     allTasks.textContent = "All tasks";
+    allTasks.classList.add("project-list-item");
     allTasks.addEventListener("click", () => {
         display.setCurrentTab(()=> {
             display.allProjects();
@@ -30,7 +31,7 @@ function displayProjectList() {
 
     projectList.forEach(project => {
         const item = document.createElement("li");
-        item.classList.add("project-item");
+        item.classList.add("project-list-item");
         item.textContent = project.title;
         
         item.addEventListener("click", () => {
