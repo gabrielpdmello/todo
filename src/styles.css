@@ -41,7 +41,7 @@ h1 {
     
 }
 
-.project-container {
+.project-list-container {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     display: inline-block;
@@ -51,22 +51,22 @@ h1 {
     overflow: auto;
 }
 
-.project-container-title {
+.project-list-container-title {
     text-align: center;
 }
 
-.projects-list {
+.project-list {
     list-style: none;
     padding: 0;
 }
 
-.projects-list > li {
+.project-list-item {
     padding: 0.5rem 2rem;
     border-radius: 10px;
     margin-bottom: 0.6rem;
 }
 
-.projects-list > li:hover {
+.project-list-item:hover {
     background-color: var(--terciary-color);
     cursor: pointer;
 }
@@ -82,6 +82,10 @@ h1 {
 
 .task-container-title {
     text-align: center;
+}
+
+.project-container {
+    margin-bottom: 1rem;
 }
 
 .project-header {
@@ -122,9 +126,9 @@ h1 {
     cursor: pointer;
 }
 
-.tasks-list {
+.task-list {
     list-style: none;
-    padding: 0;
+    padding-left: 3rem;
     margin-bottom: 3rem;
 }
 
