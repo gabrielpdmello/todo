@@ -1,5 +1,5 @@
-import { displayAllProjects } from "./displayAllProjects";
 import { removeAllChild } from "./removeAllChild";
+import { display } from "./display";
 
 // show all task's info on a div
 function displayViewMoreMenu(project, task, taskIndex, button) {
@@ -34,7 +34,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     isDoneInput.addEventListener("click", () => {
       task.isDone = !task.isDone;
       isDoneInput.checked = !isDoneInput.checked;
-      displayAllProjects();
+      display.allProjects();
     })
     if (task.isDone === true) {
       isDoneInput.checked = true;
@@ -48,7 +48,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     isDoneWrapper.addEventListener("click", ()=> {
       task.isDone = !task.isDone;
       isDoneInput.checked = !isDoneInput.checked;
-      displayAllProjects();
+      display.allProjects();
     })
 
     const deleteWrapper = document.createElement("span");
@@ -66,7 +66,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
 
     deleteWrapper.addEventListener("click", ()=> {
       project.removeTask(taskIndex);
-      displayAllProjects();
+      display.allProjects();
       window.classList.add("hide");
     })
 

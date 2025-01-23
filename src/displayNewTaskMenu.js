@@ -1,4 +1,4 @@
-import { displayProject } from "./displayProject";
+import { display } from "./display";
 import { removeAllChild } from "./removeAllChild";
 
 function displayNewTaskMenu(project, button, taskEdit = false) {
@@ -89,7 +89,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
                 taskEdit.priority = prioritySelect.value;
                 taskEdit.dueDate = dueDateInput.value;
                 taskEdit.description = descriptionTextarea.value;
-                displayProject(project);
+                display.currentTab();
                 window.classList.add("hide");
             }
         })
@@ -97,7 +97,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
         doneButton.addEventListener("click", ()=> {
             if (titleInput.value && prioritySelect.value && dueDateInput.value && descriptionTextarea.value) {
                 project.newTask(titleInput.value, descriptionTextarea.value, dueDateInput.value, prioritySelect.value);
-                displayProject(project);
+                display.project(project);
                 window.classList.add("hide");
             }
         })

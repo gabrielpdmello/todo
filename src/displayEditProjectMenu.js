@@ -1,6 +1,5 @@
 import { removeAllChild } from "./removeAllChild.js";
-import { displayProjectList } from "./displayProjectList.js";
-import { displayProject } from "./displayProject.js";
+import { display } from "./display.js";
 
 function displayEditProjectMenu(project, button) {
     const window = document.querySelector(".window");
@@ -25,8 +24,8 @@ function displayEditProjectMenu(project, button) {
     doneButton.addEventListener("click", () => {
         if (projectTitleInput.value) {
             project.title = projectTitleInput.value;
-            displayProjectList();
-            displayProject(project);
+            display.projectList();
+            display.currentTab();
             window.classList.add("hide");
         }
     })

@@ -1,11 +1,9 @@
 import "./styles.css";
 import { newProject } from "./newProject.js";
 import { projectList } from "./projectList.js";
-import { displayProjectList } from "./displayProjectList.js";
-import { displayAllProjects } from "./displayAllProjects.js";
+import { display } from "./display.js";
 
 const window = document.querySelector(".window");
-const taskContainer = document.querySelector(".task-container");
 
 document.addEventListener("click", e => {
     if (!window.contains(e.target) && !window.classList.contains("hide")) {
@@ -31,5 +29,5 @@ projectList[1].newTask("title", "description", "dueDate", "high");
 
 console.log(projectList[1].getTasks());
 
-displayProjectList();
-displayAllProjects(taskContainer);
+display.projectList();
+display.allProjects();

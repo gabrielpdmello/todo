@@ -1,8 +1,7 @@
 import { newProject } from "./newProject.js";
 import { removeAllChild } from "./removeAllChild.js";
 import { projectList } from "./projectList.js";
-import { displayProjectList } from "./displayProjectList.js";
-import { displayProject } from "./displayProject.js";
+import { display } from "./display.js";
 
 function displayNewProjectMenu(button) {
     const window = document.querySelector(".window");
@@ -30,8 +29,11 @@ function displayNewProjectMenu(button) {
         if (newProjectInput.value) {
             const addNewProject = newProject(newProjectInput.value);
             projectList.push(addNewProject);
-            displayProjectList();
-            displayProject(addNewProject);
+            display.projectList();
+            display.setCurrentTab(()=> {
+                display.project(addNewProject);
+            });
+            display.currentTab();
             newProjectInput.value = "";
             window.classList.add("hide");
         }

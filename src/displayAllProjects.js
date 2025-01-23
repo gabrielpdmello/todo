@@ -1,6 +1,6 @@
 import { projectList } from "./projectList.js"
-import { displayProject } from "./displayProject.js";
 import { removeAllChild } from "./removeAllChild.js";
+import { display } from "./display.js";
 
 function displayAllProjects() {
     const taskContainer = document.querySelector(".task-container");
@@ -17,7 +17,7 @@ function displayAllProjects() {
         taskContainer.appendChild(noProjects);
     } else {
         projectList.forEach(project => {
-            displayProject(project, false, false);
+            display.project(project, false, false);
         });
     }
 }

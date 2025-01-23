@@ -1,14 +1,11 @@
 import { projectList } from "./projectList.js"
-import { displayAllProjects } from "./displayAllProjects.js";
-import { displayNewProjectMenu } from "./displayNewProjectMenu.js";
 import { removeAllChild } from "./removeAllChild.js";
-import { displayProject } from "./displayProject.js";
+import { display } from "./display.js";
 
 function displayProjectList() {
     const projectListElement = document.querySelector(".projects-list");
-    const taskContainer = document.querySelector(".task-container");
     
-    // sorts the objects based on their title value. case-insensitive
+    // sorts the objects based on its title value. case-insensitive
     projectList.sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) {
             return -1
@@ -24,7 +21,10 @@ function displayProjectList() {
     const allTasks = document.createElement("li");
     allTasks.textContent = "All tasks";
     allTasks.addEventListener("click", () => {
-        displayAllProjects(taskContainer)
+        display.setCurrentTab(()=> {
+            display.allProjects();
+        });
+        display.currentTab();
     });
     projectListElement.appendChild(allTasks)
 
@@ -34,7 +34,10 @@ function displayProjectList() {
         item.textContent = project.title;
         
         item.addEventListener("click", () => {
-            displayProject(project);
+            display.setCurrentTab(()=> {
+                display.project(project);
+            });
+            display.currentTab();
         });
         projectListElement.appendChild(item);
     });
@@ -45,12 +48,12 @@ function displayProjectList() {
     newProjectMenuToggleText.textContent = "Add project";
     newProjectMenuToggleText.classList.add("new-project-menu-toggle-text");
     const addIcon = document.createElement("span");
-    addIcon.classList.add("add-icon")
-    addIcon.classList.add("white-icon")
+    addIcon.classList.add("add-icon");
+    addIcon.classList.add("white-icon");
     newProjectMenuToggle.appendChild(newProjectMenuToggleText);
     newProjectMenuToggle.appendChild(addIcon);
     newProjectMenuToggle.addEventListener("click", ()=> {
-        displayNewProjectMenu(newProjectMenuToggle);
+        display.newProjectMenu(newProjectMenuToggle);
     })
     projectListElement.appendChild(newProjectMenuToggle);
 

@@ -1,8 +1,5 @@
 import { removeAllChild } from "./removeAllChild.js";
-import { displayTask } from "./displayTask.js";
-import { displayNewTaskMenu } from "./displayNewTaskMenu.js";
-import { displayEditProjectMenu} from "./displayEditProjectMenu.js";
-import { displayRemoveProjectMenu } from "./displayRemoveProjectMenu.js";
+import { display } from "./display.js";
 
 function displayProject(project, emptyContainer = true, projectButtons = true) {
     const taskContainer = document.querySelector(".task-container");
@@ -20,7 +17,7 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
 
     const taskList = project.getTasks();
     taskList.forEach((task, index) => {
-        displayTask(project, task, index, taskListEl);
+        display.task(project, task, index, taskListEl);
     });
 
     projectHeader.appendChild(projectTitle)
@@ -38,21 +35,21 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
         newTaskButton.appendChild(addTaskText);
         newTaskButton.appendChild(addIcon);
         newTaskButton.addEventListener("click", ()=> {
-            displayNewTaskMenu(project, newTaskButton);
+            display.newTaskMenu(project, newTaskButton);
         })
 
         const editIcon = document.createElement("span");
         editIcon.classList.add("edit-icon");
 
         editIcon.addEventListener("click", ()=> {
-            displayEditProjectMenu(project, editIcon);
+            display.editProjectMenu(project, editIcon);
         });
         
         const deleteIcon = document.createElement("span");
         deleteIcon.classList.add("delete-icon");
 
         deleteIcon.addEventListener("click", ()=> {
-            displayRemoveProjectMenu(project, deleteIcon);
+            display.removeProjectMenu(project, deleteIcon);
         })
         
         buttonContainer.appendChild(newTaskButton);

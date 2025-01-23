@@ -1,7 +1,6 @@
-import { displayAllProjects } from "./displayAllProjects";
-import { displayProjectList } from "./displayProjectList";
 import { projectList } from "./projectList";
 import { removeAllChild } from "./removeAllChild";
+import { display } from "./display";
 
 function displayRemoveProjectMenu(project, button) {
     const projectIndex = projectList.lastIndexOf(project);
@@ -26,8 +25,8 @@ function displayRemoveProjectMenu(project, button) {
 
     removeProjectButton.addEventListener("click", ()=> {
         projectList.splice(projectIndex, 1);
-        displayAllProjects();
-        displayProjectList();
+        display.allProjects();
+        display.projectList();
         window.classList.add("hide")
     })
 
