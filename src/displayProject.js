@@ -3,6 +3,8 @@ import { display } from "./display.js";
 
 function displayProject(project, emptyContainer = true, projectButtons = true) {
     const taskContainer = document.querySelector(".task-container");
+    const projectContainer = document.createElement("div");
+    projectContainer.classList.add("project-container");
 
     if (emptyContainer) {
         removeAllChild(taskContainer);
@@ -12,13 +14,6 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
     const projectTitle = document.createElement("h3");
     projectTitle.textContent = project.title;
     projectTitle.classList.add("project-title");
-    const taskListEl = document.createElement("ul");
-    taskListEl.classList.add("task-list");
-
-    const taskList = project.getTasks();
-    taskList.forEach((task, index) => {
-        display.task(project, task, index, taskListEl);
-    });
 
     projectHeader.appendChild(projectTitle)
 
@@ -61,8 +56,22 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
 
     }
     projectHeader.classList.add("project-header");
-    taskContainer.appendChild(projectHeader);
-    taskContainer.appendChild(taskListEl);
+    projectContainer.appendChild(projectHeader);
+    const taskList = project.getTasks();
+
+    if (taskList.length === 0) {
+        const noTaskText = document.createElement("p");
+        noTaskText.textContent = "No tasks."
+        projectContainer.appendChild(noTaskText);
+    } else {
+        const taskListEl = document.createElement("ul");
+        taskListEl.classList.add("task-list");
+        taskList.forEach((task, index) => {
+            display.task(project, task, index, taskListEl);
+        });
+        projectContainer.appendChild(taskListEl);
+    }
+    taskContainer.appendChild(projectContainer);
 };
 
 export {displayProject}
