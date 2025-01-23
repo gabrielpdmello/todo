@@ -1,12 +1,12 @@
 import { removeAllChild } from "./removeAllChild";
-import { displayAllProjects } from "./displayAllProjects";
+import { display } from "./display";
 
 function removeTask(project, taskIndex) {
     const window = document.querySelector(".window");
     const taskContainer = document.querySelector(".task-container");
     project.removeTask(taskIndex);
     removeAllChild(taskContainer);
-    displayAllProjects(taskContainer);
+    display.currentTab();
     window.classList.add("hide");
 }
 

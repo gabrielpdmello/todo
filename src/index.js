@@ -30,4 +30,5 @@ projectList[1].newTask("title", "description", "dueDate", "high");
 console.log(projectList[1].getTasks());
 
 display.projectList();
-display.allProjects();
+display.setCurrentTab(display.allProjects);
+display.currentTab();
