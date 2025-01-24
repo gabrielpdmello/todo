@@ -21,14 +21,15 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     priority.textContent = `Priority: ${task.priority}`;
     priority.classList.add("window-text");
 
-    const isDoneWrapper = document.createElement("span");
-    isDoneWrapper.classList.add("button--primary");
-
-    const isDoneText = document.createElement("span");
-    isDoneText.textContent = "Task done";
+    const isDoneLabel = document.createElement("label");
+    isDoneLabel.textContent = "Task done";
+    isDoneLabel.classList.add("button--primary");
+    isDoneLabel.setAttribute("for", "isDone");
     
     const isDoneInput = document.createElement("input");
+    isDoneInput.classList.add("window-input-left");
     isDoneInput.setAttribute("type", "checkbox");
+    isDoneInput.setAttribute("id", "isDone");
     // toggles isDone property value
     isDoneInput.addEventListener("click", () => {
       task.isDone = !task.isDone;
@@ -41,29 +42,25 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
       isDoneInput.checked = false;
     }
 
-    isDoneWrapper.appendChild(isDoneInput);
-    isDoneWrapper.appendChild(isDoneText);
-
-    isDoneWrapper.addEventListener("click", ()=> {
+    isDoneInput.addEventListener("click", ()=> {
       task.isDone = !task.isDone;
       isDoneInput.checked = !isDoneInput.checked;
       display.allProjects();
     })
 
-    const deleteWrapper = document.createElement("span");
-    deleteWrapper.classList.add("button--primary");
+    isDoneLabel.appendChild(isDoneInput);
 
-    const deleteText = document.createElement("span");
-    deleteText.textContent = "Delete task";
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("button--primary");
+    deleteButton.textContent = "Delete task";
 
     const deleteIcon = document.createElement("span");
     deleteIcon.classList.add("delete-icon--no-hover");
     deleteIcon.classList.add("white-icon");
 
-    deleteWrapper.appendChild(deleteText);
-    deleteWrapper.appendChild(deleteIcon);
+    deleteButton.appendChild(deleteIcon);
 
-    deleteWrapper.addEventListener("click", ()=> {
+    deleteButton.addEventListener("click", ()=> {
       project.removeTask(taskIndex);
       display.allProjects();
       window.classList.add("hide");
@@ -71,8 +68,8 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
 
     const rowWrapper = document.createElement("span");
     rowWrapper.classList.add("window-row-wrapper");
-    rowWrapper.appendChild(isDoneWrapper);
-    rowWrapper.appendChild(deleteWrapper);
+    rowWrapper.appendChild(isDoneLabel);
+    rowWrapper.appendChild(deleteButton);
 
     window.appendChild(heading);
     window.appendChild(description);
