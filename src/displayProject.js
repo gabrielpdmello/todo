@@ -19,37 +19,41 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
 
     if (projectButtons) {
         const buttonContainer = document.createElement("span");
-        const newTaskButton = document.createElement("span");
+        const newTaskButton = document.createElement("button");
         newTaskButton.classList.add("button--primary")
+        newTaskButton.textContent = "New task";
         const addIcon = document.createElement("span");
-        const addTaskText = document.createElement("span");
 
         addIcon.classList.add("add-icon");
         addIcon.classList.add("white-icon");
-        addTaskText.textContent = "New task";
-        newTaskButton.appendChild(addTaskText);
         newTaskButton.appendChild(addIcon);
         newTaskButton.addEventListener("click", ()=> {
             display.newTaskMenu(project, newTaskButton);
         })
 
+        const editButton = document.createElement("button");
+        editButton.classList.add("empty-button");
         const editIcon = document.createElement("span");
         editIcon.classList.add("edit-icon");
 
-        editIcon.addEventListener("click", ()=> {
-            display.editProjectMenu(project, editIcon);
+        editButton.addEventListener("click", ()=> {
+            display.editProjectMenu(project, editButton);
         });
         
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("empty-button");
         const deleteIcon = document.createElement("span");
         deleteIcon.classList.add("delete-icon");
 
-        deleteIcon.addEventListener("click", ()=> {
-            display.removeProjectMenu(project, deleteIcon);
+        deleteButton.addEventListener("click", ()=> {
+            display.removeProjectMenu(project, deleteButton);
         })
         
         buttonContainer.appendChild(newTaskButton);
-        buttonContainer.appendChild(editIcon);
-        buttonContainer.appendChild(deleteIcon);
+        editButton.appendChild(editIcon);
+        buttonContainer.appendChild(editButton);
+        deleteButton.appendChild(deleteIcon);
+        buttonContainer.appendChild(deleteButton);
 
         buttonContainer.classList.add("project-buttons")
         projectHeader.appendChild(buttonContainer);

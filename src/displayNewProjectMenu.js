@@ -36,7 +36,6 @@ function displayNewProjectMenu(button) {
                 display.project(addNewProject);
             });
             display.currentTab();
-            newProjectInput.value = "";
             window.classList.add("hide");
         }
     })

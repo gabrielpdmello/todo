@@ -4,11 +4,34 @@ import { display } from "./display";
 function displayTask(project, task, taskIndex, container) {
     const item = document.createElement("li");
     const checkbox = document.createElement("input");
+    checkbox.classList.add("is-done");
     const title = document.createElement("h4");
+    title.textContent = task.title;
+    title.classList.add("task-title");
     const dueDate = document.createElement("span");
+    dueDate.textContent = task.dueDate;
+    dueDate.classList.add("due-date");
+    const viewMoreButton = document.createElement("button");
+    viewMoreButton.classList.add("empty-button");
     const viewMoreIcon = document.createElement("span");
+    viewMoreIcon.classList.add("view-more-icon");
+    viewMoreIcon.addEventListener("click", ()=> {
+        display.viewMoreMenu(project, task, taskIndex, viewMoreIcon);
+    })
+    const editButton = document.createElement("button");
+    editButton.classList.add("empty-button");
     const editIcon = document.createElement("span");
+    editIcon.classList.add("edit-icon");
+    editIcon.addEventListener("click", ()=> {
+        display.newTaskMenu(project, editIcon, task);
+    })
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("empty-button");
     const deleteIcon = document.createElement("span");
+    deleteIcon.classList.add("delete-icon");
+    deleteIcon.addEventListener("click", ()=> {
+        removeTask(project, taskIndex);
+    })
 
     item.classList.add("task-item");
 
@@ -38,35 +61,17 @@ function displayTask(project, task, taskIndex, container) {
         checkbox.checked = true;
         title.classList.add("task-title--done");
     }
-    checkbox.classList.add("is-done");
 
-    title.textContent = task.title;
-    title.classList.add("task-title");
-
-    dueDate.textContent = task.dueDate;
-    dueDate.classList.add("due-date");
-
-    viewMoreIcon.classList.add("view-more-icon");
-    viewMoreIcon.addEventListener("click", ()=> {
-        display.viewMoreMenu(project, task, taskIndex, viewMoreIcon);
-    })
-
-    editIcon.classList.add("edit-icon");
-    editIcon.addEventListener("click", ()=> {
-        display.newTaskMenu(project, editIcon, task);
-    })
-
-    deleteIcon.classList.add("delete-icon");
-    deleteIcon.addEventListener("click", ()=> {
-        removeTask(project, taskIndex);
-    })
+    viewMoreButton.appendChild(viewMoreIcon);
+    editButton.appendChild(editIcon);
+    deleteButton.appendChild(deleteIcon);
 
     item.appendChild(checkbox);
     item.appendChild(title);
     item.appendChild(dueDate);
-    item.appendChild(viewMoreIcon)
-    item.appendChild(editIcon);
-    item.appendChild(deleteIcon);
+    item.appendChild(viewMoreButton)
+    item.appendChild(editButton);
+    item.appendChild(deleteButton);
 
     container.appendChild(item);
 }

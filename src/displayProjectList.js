@@ -18,45 +18,49 @@ function displayProjectList() {
 
     removeAllChild(projectListElement);
 
-    const allTasks = document.createElement("li");
-    allTasks.textContent = "All tasks";
-    allTasks.classList.add("project-list-item");
-    allTasks.addEventListener("click", () => {
+    const allTasksItem = document.createElement("li");
+    const allTasksButton = document.createElement("button");
+    allTasksButton.textContent = "All tasks";
+    allTasksButton.classList.add("project-list-button");
+    allTasksButton.addEventListener("click", () => {
         display.setCurrentTab(()=> {
             display.allProjects();
         });
         display.currentTab();
     });
-    projectListElement.appendChild(allTasks)
+    allTasksItem.appendChild(allTasksButton);
+    projectListElement.appendChild(allTasksItem)
 
     projectList.forEach(project => {
-        const item = document.createElement("li");
-        item.classList.add("project-list-item");
-        item.textContent = project.title;
+        const projectItem = document.createElement("li");
+        const projectButton = document.createElement("button");
+        projectButton.classList.add("project-list-button");
+        projectButton.textContent = project.title;
         
-        item.addEventListener("click", () => {
+        projectButton.addEventListener("click", () => {
             display.setCurrentTab(()=> {
                 display.project(project);
             });
             display.currentTab();
         });
-        projectListElement.appendChild(item);
+        projectItem.appendChild(projectButton);
+        projectListElement.appendChild(projectItem);
     });
 
-    const newProjectMenuToggle = document.createElement("li");
-    newProjectMenuToggle.classList.add("new-project-menu-toggle");
-    const newProjectMenuToggleText = document.createElement("span");
-    newProjectMenuToggleText.textContent = "Add project";
-    newProjectMenuToggleText.classList.add("new-project-menu-toggle-text");
+    const newProjectMenuItem = document.createElement("li");
+    const newProjectMenuButton = document.createElement("button");
+    newProjectMenuButton.classList.add("project-list-button");
+    newProjectMenuButton.classList.add("project-list-button--new-project");
+    newProjectMenuButton.textContent = "Add project";
     const addIcon = document.createElement("span");
     addIcon.classList.add("add-icon");
     addIcon.classList.add("white-icon");
-    newProjectMenuToggle.appendChild(newProjectMenuToggleText);
-    newProjectMenuToggle.appendChild(addIcon);
-    newProjectMenuToggle.addEventListener("click", ()=> {
-        display.newProjectMenu(newProjectMenuToggle);
+    newProjectMenuButton.appendChild(addIcon);
+    newProjectMenuItem.appendChild(newProjectMenuButton);
+    newProjectMenuButton.addEventListener("click", ()=> {
+        display.newProjectMenu(newProjectMenuButton);
     })
-    projectListElement.appendChild(newProjectMenuToggle);
+    projectListElement.appendChild(newProjectMenuItem);
 
 }
 

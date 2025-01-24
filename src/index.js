@@ -5,11 +5,14 @@ import { display } from "./display.js";
 
 const window = document.querySelector(".window");
 
-document.addEventListener("click", e => {
+// hide window when user clicks or focus an element outside of window
+["click", "focusin"].forEach(ev => {
+  document.addEventListener(ev, e => {
     if (!window.contains(e.target) && !window.classList.contains("hide")) {
       window.classList.add("hide");
     }
-});
+  })
+})
 
 projectList.push(newProject("teste"));
 console.log(projectList);

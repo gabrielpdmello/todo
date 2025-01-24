@@ -60,13 +60,26 @@ h1 {
     padding: 0;
 }
 
-.project-list-item {
+.project-list-button {
     padding: 0.5rem 2rem;
     border-radius: 10px;
     margin-bottom: 0.6rem;
+    background-color: var(--secondary-color);
+    border: none;
+    font-size: inherit;
+    width: 100%;
+    text-align: start;
 }
 
-.project-list-item:hover {
+.project-list-button--new-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.project-list-button:hover {
     background-color: var(--terciary-color);
     cursor: pointer;
 }
@@ -164,7 +177,6 @@ h1 {
     height: 1.4rem;
     background-image: url("materials/icons8-eye-96.png");
     background-size: cover;
-    margin: 0 0.5rem;
     display: inline-block;
 
 }
@@ -179,7 +191,6 @@ h1 {
     height: 1.4rem;
     background-image: url("materials/icons8-add-100.png");
     background-size: cover;
-    margin: 0 0.5rem;
     display: inline-block;
 }
 
@@ -188,7 +199,6 @@ h1 {
     height: 1.4rem;
     background-image: url("materials/icons8-create-96.png");
     background-size: cover;
-    margin: 0 0.5rem;
     display: inline-block;
 }
 
@@ -202,7 +212,6 @@ h1 {
     height: 1.6rem;
     background-image: url("materials/icons8-delete.svg");
     background-size: cover;
-    margin: 0 0.5rem;
     display: inline-block;
 }
 
@@ -222,8 +231,17 @@ h1 {
 
 .white-icon {
     filter: var(--filter-white);
+    margin-left: 0.5rem;
 }
 
+.empty-button {
+    padding: 0;
+    border: none;
+    height: fit-content;
+    line-height: 0;
+    background-color: transparent;
+    margin: 0 0.2rem;
+}
 
 .new-project-menu-toggle {
     display: flex;
