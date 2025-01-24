@@ -3,9 +3,9 @@ import { display } from "./display.js";
 
 function displayEditProjectMenu(project, button) {
     const window = document.querySelector(".window");
-    const windowForm = document.querySelector(".window-form");
-    removeAllChild(windowForm);
-
+    removeAllChild(window);
+    
+    const windowForm = document.createElement("form");
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
     heading.textContent = "Edit project";
@@ -35,6 +35,7 @@ function displayEditProjectMenu(project, button) {
     windowForm.appendChild(projectTitleLabel);
     windowForm.appendChild(projectTitleInput);
     windowForm.appendChild(doneButton);
+    window.appendChild(windowForm);
 
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {
