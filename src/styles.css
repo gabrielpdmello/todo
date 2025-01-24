@@ -334,6 +334,12 @@ h1 {
     margin: 0.8rem 0 0 0.8rem;
 }
 
+.window-button-container {
+    float: right;
+    display: flex;
+    gap: 1rem;
+}
+
 .priority-low {
     border-left: 3px solid var(--task-priority-low);
 }
