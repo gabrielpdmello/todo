@@ -15,21 +15,21 @@ function displayTask(project, task, taskIndex, container) {
     viewMoreButton.classList.add("empty-button");
     const viewMoreIcon = document.createElement("span");
     viewMoreIcon.classList.add("view-more-icon");
-    viewMoreIcon.addEventListener("click", ()=> {
-        display.viewMoreMenu(project, task, taskIndex, viewMoreIcon);
+    viewMoreButton.addEventListener("click", ()=> {
+        display.viewMoreMenu(project, task, taskIndex, viewMoreButton);
     })
     const editButton = document.createElement("button");
     editButton.classList.add("empty-button");
     const editIcon = document.createElement("span");
     editIcon.classList.add("edit-icon");
-    editIcon.addEventListener("click", ()=> {
-        display.newTaskMenu(project, editIcon, task);
+    editButton.addEventListener("click", ()=> {
+        display.newTaskMenu(project, editButton, task);
     })
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("empty-button");
     const deleteIcon = document.createElement("span");
     deleteIcon.classList.add("delete-icon");
-    deleteIcon.addEventListener("click", ()=> {
+    deleteButton.addEventListener("click", ()=> {
         removeTask(project, taskIndex);
     })
 
