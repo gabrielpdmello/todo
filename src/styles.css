@@ -282,6 +282,7 @@ h1 {
     width: fit-content;
     margin-right: 0.5rem;
     transform: translate(0, 1px);
+    order: -1;
 }
 
 .window select {
