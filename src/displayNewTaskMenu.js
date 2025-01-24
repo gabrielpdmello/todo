@@ -127,6 +127,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {
           window.classList.remove("hide");
+          titleInput.focus();
         }
     });
 }

@@ -39,6 +39,7 @@ function displayEditProjectMenu(project, button) {
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {
           window.classList.remove("hide");
+          projectTitleInput.focus();
         }
     });
 }

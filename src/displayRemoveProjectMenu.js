@@ -32,6 +32,7 @@ function displayRemoveProjectMenu(project, button) {
 
     cancelProjectButton.addEventListener("click", ()=> {
         window.classList.add("hide");
+        cancelProjectButton.focus();
     })
 
     windowForm.appendChild(heading);

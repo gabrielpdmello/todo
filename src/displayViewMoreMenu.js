@@ -85,6 +85,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {
           window.classList.remove("hide");
+          isDoneInput.focus();
         }
     });
 }
