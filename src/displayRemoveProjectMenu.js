@@ -20,9 +20,11 @@ function displayRemoveProjectMenu(project, button) {
     const removeButton = document.createElement("button");
     removeButton.classList.add("button--primary");
     removeButton.textContent = "Yes";
+    removeButton.setAttribute("type", "button");
     const cancelButton = document.createElement("button");
     cancelButton.classList.add("button--primary");
     cancelButton.textContent = "No";
+    cancelButton.setAttribute("type", "button");
 
     removeButton.addEventListener("click", ()=> {
         projectList.splice(projectIndex, 1);

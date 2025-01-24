@@ -20,6 +20,7 @@ function displayEditProjectMenu(project, button) {
     const doneButton = document.createElement("button");
     doneButton.classList.add("done-button");
     doneButton.classList.add("button--primary");
+    doneButton.setAttribute("type", "button");
     doneButton.textContent = "Done";
 
     doneButton.addEventListener("click", () => {

@@ -53,6 +53,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("button--primary");
     deleteButton.textContent = "Delete task";
+    deleteButton.setAttribute("type", "button");
 
     const deleteIcon = document.createElement("span");
     deleteIcon.classList.add("delete-icon--no-hover");

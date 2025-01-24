@@ -26,6 +26,7 @@ function displayNewProjectMenu(button) {
     newProjectButton.classList.add("done-button");
     newProjectButton.classList.add("button--primary");
     newProjectButton.textContent = "Add project";
+    newProjectButton.setAttribute("type", "button");
 
     newProjectButton.addEventListener("click", () => {
         if (newProjectInput.value) {
