@@ -3,7 +3,8 @@ import { removeAllChild } from "./removeAllChild";
 
 function displayNewTaskMenu(project, button, taskEdit = false) {
     const window = document.querySelector(".window");
-    removeAllChild(window);
+    const windowForm = document.querySelector(".window-form");
+    removeAllChild(windowForm);
 
     const heading = document.createElement("h2");
     heading.textContent = "Add new task";
@@ -117,11 +118,11 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     rowWrapper.appendChild(selectWrapper);
     rowWrapper.appendChild(dueDateWrapper);
 
-    window.appendChild(heading);
-    window.appendChild(titleWrapper);
-    window.appendChild(rowWrapper);
-    window.appendChild(descriptionWrapper);
-    window.appendChild(doneButton);
+    windowForm.appendChild(heading);
+    windowForm.appendChild(titleWrapper);
+    windowForm.appendChild(rowWrapper);
+    windowForm.appendChild(descriptionWrapper);
+    windowForm.appendChild(doneButton);
 
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {

@@ -3,7 +3,8 @@ import { display } from "./display.js";
 
 function displayEditProjectMenu(project, button) {
     const window = document.querySelector(".window");
-    removeAllChild(window);
+    const windowForm = document.querySelector(".window-form");
+    removeAllChild(windowForm);
 
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
@@ -30,10 +31,10 @@ function displayEditProjectMenu(project, button) {
         }
     })
 
-    window.appendChild(heading);
-    window.appendChild(projectTitleLabel);
-    window.appendChild(projectTitleInput);
-    window.appendChild(doneButton);
+    windowForm.appendChild(heading);
+    windowForm.appendChild(projectTitleLabel);
+    windowForm.appendChild(projectTitleInput);
+    windowForm.appendChild(doneButton);
 
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {

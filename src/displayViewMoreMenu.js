@@ -4,7 +4,8 @@ import { display } from "./display";
 // show all task's info on a div
 function displayViewMoreMenu(project, task, taskIndex, button) {
     const window = document.querySelector(".window");
-    removeAllChild(window);
+    const windowForm = document.querySelector(".window-form");
+    removeAllChild(windowForm);
 
     const heading = document.createElement("h2");
     heading.textContent = task.title;
@@ -75,11 +76,11 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     rowWrapper.appendChild(isDoneWrapper);
     rowWrapper.appendChild(deleteWrapper);
 
-    window.appendChild(heading);
-    window.appendChild(description);
-    window.appendChild(dueDate);
-    window.appendChild(priority);
-    window.appendChild(rowWrapper);
+    windowForm.appendChild(heading);
+    windowForm.appendChild(description);
+    windowForm.appendChild(dueDate);
+    windowForm.appendChild(priority);
+    windowForm.appendChild(rowWrapper);
 
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {

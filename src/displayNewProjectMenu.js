@@ -5,7 +5,8 @@ import { display } from "./display.js";
 
 function displayNewProjectMenu(button) {
     const window = document.querySelector(".window");
-    removeAllChild(window);
+    const windowForm = document.querySelector(".window-form");
+    removeAllChild(windowForm);
 
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
@@ -39,10 +40,10 @@ function displayNewProjectMenu(button) {
         }
     })
 
-    window.appendChild(heading);
-    window.appendChild(newProjectLabel);
-    window.appendChild(newProjectInput);
-    window.appendChild(newProjectButton);
+    windowForm.appendChild(heading);
+    windowForm.appendChild(newProjectLabel);
+    windowForm.appendChild(newProjectInput);
+    windowForm.appendChild(newProjectButton);
 
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {

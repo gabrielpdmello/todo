@@ -4,9 +4,9 @@ import { display } from "./display";
 
 function displayRemoveProjectMenu(project, button) {
     const projectIndex = projectList.lastIndexOf(project);
-    
     const window = document.querySelector(".window");
-    removeAllChild(window);
+    const windowForm = document.querySelector(".window-form");
+    removeAllChild(windowForm);
 
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
@@ -34,10 +34,10 @@ function displayRemoveProjectMenu(project, button) {
         window.classList.add("hide");
     })
 
-    window.appendChild(heading);
-    window.appendChild(removeProjectText);
-    window.appendChild(cancelProjectButton);
-    window.appendChild(removeProjectButton);
+    windowForm.appendChild(heading);
+    windowForm.appendChild(removeProjectText);
+    windowForm.appendChild(cancelProjectButton);
+    windowForm.appendChild(removeProjectButton);
 
     document.addEventListener("click", e => {
         if (button.contains(e.target) && window.classList.contains("hide")) {
