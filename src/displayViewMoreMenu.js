@@ -31,22 +31,21 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     isDoneInput.classList.add("window-input-left");
     isDoneInput.setAttribute("type", "checkbox");
     isDoneInput.setAttribute("id", "isDone");
-    // toggles isDone property value
-    isDoneInput.addEventListener("click", () => {
-      task.isDone = !task.isDone;
-      isDoneInput.checked = !isDoneInput.checked;
-      display.allProjects();
-    })
     if (task.isDone === true) {
       isDoneInput.checked = true;
     } else {
       isDoneInput.checked = false;
     }
 
-    isDoneInput.addEventListener("click", ()=> {
+    // toggles isDone property value
+    isDoneInput.addEventListener("click", () => {
       task.isDone = !task.isDone;
-      isDoneInput.checked = !isDoneInput.checked;
-      display.allProjects();
+      if (task.isDone === true) {
+        isDoneInput.checked = true;
+      } else {
+        isDoneInput.checked = false;
+      }
+      display.currentTab();
     })
 
     isDoneLabel.appendChild(isDoneInput);
