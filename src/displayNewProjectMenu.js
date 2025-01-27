@@ -2,6 +2,7 @@ import { newProject } from "./newProject.js";
 import { removeAllChild } from "./removeAllChild.js";
 import { projectList } from "./projectList.js";
 import { display } from "./display.js";
+import { addEventShowWindow } from "./addEventShowWindow.js";
 
 function displayNewProjectMenu(button) {
     const window = document.querySelector(".window");
@@ -47,12 +48,7 @@ function displayNewProjectMenu(button) {
     windowForm.appendChild(newProjectButton);
     window.appendChild(windowForm);
 
-    document.addEventListener("click", e => {
-        if (button.contains(e.target) && window.classList.contains("hide")) {
-          window.classList.remove("hide");
-          newProjectInput.focus();
-        }
-    });
+    addEventShowWindow(button);
 }
 
 export {displayNewProjectMenu}

@@ -1,6 +1,7 @@
 import { projectList } from "./projectList";
 import { removeAllChild } from "./removeAllChild";
 import { display } from "./display";
+import { addEventShowWindow } from "./addEventShowWindow.js";
 
 function displayRemoveProjectMenu(project, button) {
     const projectIndex = projectList.lastIndexOf(project);
@@ -44,12 +45,7 @@ function displayRemoveProjectMenu(project, button) {
     windowForm.appendChild(buttonContainer);
     window.appendChild(windowForm);
 
-    document.addEventListener("click", e => {
-        if (button.contains(e.target) && window.classList.contains("hide")) {
-          window.classList.remove("hide");
-          cancelButton.focus();
-        }
-    });
+    addEventShowWindow(button);
 }
 
 export {displayRemoveProjectMenu};

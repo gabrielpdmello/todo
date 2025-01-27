@@ -1,5 +1,6 @@
 import { removeAllChild } from "./removeAllChild.js";
 import { display } from "./display.js";
+import { addEventShowWindow } from "./addEventShowWindow.js";
 
 function displayEditProjectMenu(project, button) {
     const window = document.querySelector(".window");
@@ -38,12 +39,7 @@ function displayEditProjectMenu(project, button) {
     windowForm.appendChild(doneButton);
     window.appendChild(windowForm);
 
-    document.addEventListener("click", e => {
-        if (button.contains(e.target) && window.classList.contains("hide")) {
-          window.classList.remove("hide");
-          projectTitleInput.focus();
-        }
-    });
+    addEventShowWindow(button);
 }
 
 export {displayEditProjectMenu}

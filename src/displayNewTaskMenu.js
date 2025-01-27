@@ -1,5 +1,6 @@
 import { display } from "./display";
 import { removeAllChild } from "./removeAllChild";
+import { addEventShowWindow } from "./addEventShowWindow.js";
 
 function displayNewTaskMenu(project, button, taskEdit = false) {
     const window = document.querySelector(".window");
@@ -127,12 +128,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     windowForm.appendChild(doneButton);
     window.appendChild(windowForm);
 
-    document.addEventListener("click", e => {
-        if (button.contains(e.target) && window.classList.contains("hide")) {
-          window.classList.remove("hide");
-          titleInput.focus();
-        }
-    });
+    addEventShowWindow(button);
 }
 
 export {displayNewTaskMenu};

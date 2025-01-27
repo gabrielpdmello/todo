@@ -1,5 +1,6 @@
 import { removeAllChild } from "./removeAllChild";
 import { display } from "./display";
+import { addEventShowWindow } from "./addEventShowWindow.js";
 
 function displayViewMoreMenu(project, task, taskIndex, button) {
     const window = document.querySelector(".window");
@@ -78,12 +79,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     window.appendChild(priority);
     window.appendChild(rowWrapper);
 
-    document.addEventListener("click", e => {
-        if (button.contains(e.target) && window.classList.contains("hide")) {
-          window.classList.remove("hide");
-          isDoneInput.focus();
-        }
-    });
+    addEventShowWindow(button);
 }
 
 export {displayViewMoreMenu}
