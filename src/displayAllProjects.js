@@ -7,7 +7,7 @@ function displayAllProjects() {
     removeAllChild(taskContainer);
 
     const allTasksTitle = document.createElement("h2");
-    allTasksTitle.textContent = "All tasks";
+    allTasksTitle.textContent = "All projects";
     allTasksTitle.classList.add("all-tasks-title");
     taskContainer.appendChild(allTasksTitle);
 

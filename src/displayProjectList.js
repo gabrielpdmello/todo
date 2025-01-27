@@ -20,7 +20,7 @@ function displayProjectList() {
 
     const allTasksItem = document.createElement("li");
     const allTasksButton = document.createElement("button");
-    allTasksButton.textContent = "All tasks";
+    allTasksButton.textContent = "All projects";
     allTasksButton.classList.add("project-list-button");
     allTasksButton.addEventListener("click", () => {
         display.setCurrentTab(()=> {
