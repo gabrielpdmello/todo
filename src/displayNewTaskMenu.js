@@ -7,6 +7,9 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     removeAllChild(window);
     
     const windowForm = document.createElement("form");
+    windowForm.addEventListener("submit", (e)=> {
+        e.preventDefault();
+    })
 
     const heading = document.createElement("h2");
     heading.textContent = "Add new task";
@@ -16,6 +19,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     titleLabel.setAttribute("for", "title");
 
     const titleInput = document.createElement("input");
+    titleInput.required = true;
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("id", "title");
 
@@ -27,6 +31,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     priorityLabel.setAttribute("for", "priority");
 
     const prioritySelect = document.createElement("select");
+    prioritySelect.required = true;
     prioritySelect.setAttribute("id", "priority");
 
     const selectWrapper = document.createElement("span");
@@ -53,6 +58,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     dueDateLabel.setAttribute("for", "dueDate");
 
     const dueDateInput = document.createElement("input");
+    dueDateInput.required = true;
     dueDateInput.setAttribute("type", "date");
     dueDateInput.setAttribute("name", "dueDate");
 
@@ -73,7 +79,6 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     doneButton.classList.add("button--primary");
     doneButton.classList.add("done-button");
     doneButton.textContent = "Add task";
-    doneButton.setAttribute("type", "button");
 
     prioritySelect.appendChild(optionEmpty);
     prioritySelect.appendChild(optionLow);
@@ -88,10 +93,13 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
         descriptionTextarea.value = taskEdit.description;
         doneButton.textContent = "Finish edit";
         doneButton.addEventListener("click", ()=> {
-            if (titleInput.value && prioritySelect.value && dueDateInput.value && descriptionTextarea.value) {
+            if (titleInput.value && prioritySelect.value && dueDateInput.value) {
                 taskEdit.title = titleInput.value;
                 taskEdit.priority = prioritySelect.value;
                 taskEdit.dueDate = dueDateInput.value;
+                if (!descriptionTextarea.value) {
+                    descriptionTextarea.value = "No description."
+                }
                 taskEdit.description = descriptionTextarea.value;
                 display.currentTab();
                 window.classList.add("hide");
@@ -99,7 +107,10 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
         })
     } else {
         doneButton.addEventListener("click", ()=> {
-            if (titleInput.value && prioritySelect.value && dueDateInput.value && descriptionTextarea.value) {
+            if (titleInput.value && prioritySelect.value && dueDateInput.value) {
+                if (!descriptionTextarea.value) {
+                    descriptionTextarea.value = "No description."
+                }
                 project.newTask(titleInput.value, descriptionTextarea.value, dueDateInput.value, prioritySelect.value);
                 display.project(project);
                 window.classList.add("hide");

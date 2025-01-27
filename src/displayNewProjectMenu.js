@@ -9,6 +9,9 @@ function displayNewProjectMenu(button) {
     removeAllChild(window);
     
     const windowForm = document.createElement("form");
+    windowForm.addEventListener("submit", (e)=> {
+        e.preventDefault();
+    })
 
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
@@ -19,6 +22,7 @@ function displayNewProjectMenu(button) {
     newProjectLabel.setAttribute("for", "new-project");
 
     const newProjectInput = document.createElement("input");
+    newProjectInput.required = true;
     newProjectInput.classList.add("project-input");
     newProjectInput.setAttribute("type", "text");
     newProjectInput.setAttribute("id", "new-project");
@@ -27,7 +31,6 @@ function displayNewProjectMenu(button) {
     newProjectButton.classList.add("done-button");
     newProjectButton.classList.add("button--primary");
     newProjectButton.textContent = "Add project";
-    newProjectButton.setAttribute("type", "button");
 
     newProjectButton.addEventListener("click", () => {
         if (newProjectInput.value) {

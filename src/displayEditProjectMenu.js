@@ -7,6 +7,10 @@ function displayEditProjectMenu(project, button) {
     removeAllChild(window);
     
     const windowForm = document.createElement("form");
+    windowForm.addEventListener("submit", (e)=> {
+        e.preventDefault();
+    })
+
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
     heading.textContent = "Edit project";
@@ -15,13 +19,13 @@ function displayEditProjectMenu(project, button) {
     projectTitleLabel.setAttribute("for", "project-title");
     const projectTitleInput = document.createElement("input");
     projectTitleInput.classList.add("project-input");
+    projectTitleInput.required = true;
     projectTitleInput.setAttribute("type", "text");
     projectTitleInput.setAttribute("id", "project-title");
     projectTitleInput.value = project.title;
     const doneButton = document.createElement("button");
     doneButton.classList.add("done-button");
     doneButton.classList.add("button--primary");
-    doneButton.setAttribute("type", "button");
     doneButton.textContent = "Done";
 
     doneButton.addEventListener("click", () => {
