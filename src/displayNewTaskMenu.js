@@ -1,6 +1,7 @@
 import { display } from "./display";
 import { removeAllChild } from "./removeAllChild";
 import { addEventShowWindow } from "./addEventShowWindow.js";
+import { format, parse, parseISO} from "date-fns";
 
 function displayNewTaskMenu(project, button, taskEdit = false) {
     const window = document.querySelector(".window");
@@ -89,7 +90,8 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
         heading.textContent = "Edit task";
         titleInput.value = taskEdit.title;
         prioritySelect.value = taskEdit.priority;
-        dueDateInput.value = taskEdit.dueDate;
+        // format date so the input type=date understands the date string
+        dueDateInput.value = format(parse(taskEdit.dueDate, "dd/MM/yyyy", new Date()), "yyyy-MM-dd");
         descriptionTextarea.value = taskEdit.description;
         doneButton.textContent = "Finish edit";
         doneButton.addEventListener("click", ()=> {
@@ -111,7 +113,9 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
                 if (!descriptionTextarea.value) {
                     descriptionTextarea.value = "No description."
                 }
-                project.newTask(titleInput.value, descriptionTextarea.value, dueDateInput.value, prioritySelect.value);
+
+                const formatDate = format(parseISO(dueDateInput.value), "dd/MM/yyyy");
+                project.newTask(titleInput.value, descriptionTextarea.value, formatDate, prioritySelect.value);
                 display.project(project);
                 window.classList.add("hide");
             }
