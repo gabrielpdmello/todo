@@ -1,6 +1,4 @@
 import "./styles.css";
-import { newProject } from "./newProject.js";
-import { projectList } from "./projectList.js";
 import { display } from "./display.js";
 
 const window = document.querySelector(".window");
