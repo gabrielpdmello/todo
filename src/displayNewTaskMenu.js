@@ -96,9 +96,10 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
         doneButton.textContent = "Finish edit";
         doneButton.addEventListener("click", ()=> {
             if (titleInput.value && prioritySelect.value && dueDateInput.value) {
+                const formatDate = format(parseISO(dueDateInput.value), "dd/MM/yyyy");
                 taskEdit.title = titleInput.value;
                 taskEdit.priority = prioritySelect.value;
-                taskEdit.dueDate = dueDateInput.value;
+                taskEdit.dueDate = formatDate;
                 if (!descriptionTextarea.value) {
                     descriptionTextarea.value = "No description."
                 }
