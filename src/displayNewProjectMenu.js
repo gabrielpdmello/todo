@@ -9,6 +9,7 @@ function displayNewProjectMenu(button) {
     removeAllChild(window);
     
     const windowForm = document.createElement("form");
+    windowForm.setAttribute("autocomplete", "off");
     windowForm.addEventListener("submit", (e)=> {
         e.preventDefault();
     })

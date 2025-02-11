@@ -9,6 +9,7 @@ function displayRemoveProjectMenu(project, button) {
     removeAllChild(window);
     
     const windowForm = document.createElement("form");
+    windowForm.setAttribute("autocomplete", "off");
 
     const heading = document.createElement("h2");
     heading.classList.add("window-heading");
