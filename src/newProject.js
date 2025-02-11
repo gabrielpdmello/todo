@@ -1,14 +1,6 @@
 const newProject = function (title) {
     let tasks = [];
 
-    function getTasks(index) {
-        if (index === undefined) {
-            return tasks
-        } else{
-            return tasks[index];
-        }
-    }
-
     function newTask(title, description, dueDate, priority) {
         let isDone = false;
         tasks.push({title, description, dueDate, priority, isDone});
@@ -18,7 +10,7 @@ const newProject = function (title) {
         tasks.splice(index, 1);
     }
 
-    return {title, getTasks, newTask, removeTask}
+    return {title, tasks, newTask, removeTask}
 }
 
 export {newProject};

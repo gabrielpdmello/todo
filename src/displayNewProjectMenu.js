@@ -36,6 +36,9 @@ function displayNewProjectMenu(button) {
         if (newProjectInput.value) {
             const addNewProject = newProject(newProjectInput.value);
             projectList.push(addNewProject);
+
+            localStorage.setItem("projectList", JSON.stringify(projectList));
+
             display.projectList();
             display.setCurrentTab(()=> {
                 display.project(addNewProject);

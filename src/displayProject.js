@@ -61,7 +61,7 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
     }
     projectHeader.classList.add("project-header");
     projectContainer.appendChild(projectHeader);
-    const taskList = project.getTasks();
+    const taskList = project.tasks;
 
     if (taskList.length === 0) {
         const noTaskText = document.createElement("p");

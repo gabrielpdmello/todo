@@ -1,6 +1,7 @@
 import { removeAllChild } from "./removeAllChild";
 import { display } from "./display";
 import { addEventShowWindow } from "./addEventShowWindow.js";
+import { projectList } from "./projectList.js";
 
 function displayViewMoreMenu(project, task, taskIndex, button) {
     const window = document.querySelector(".window");
@@ -42,8 +43,10 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
       task.isDone = !task.isDone;
       if (task.isDone === true) {
         isDoneInput.checked = true;
+        localStorage.setItem("projectList", JSON.stringify(projectList));
       } else {
         isDoneInput.checked = false;
+        localStorage.setItem("projectList", JSON.stringify(projectList));
       }
       display.currentTab();
     })

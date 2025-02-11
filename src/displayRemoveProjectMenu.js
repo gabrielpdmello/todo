@@ -29,6 +29,7 @@ function displayRemoveProjectMenu(project, button) {
 
     removeButton.addEventListener("click", ()=> {
         projectList.splice(projectIndex, 1);
+        localStorage.setItem("projectList", JSON.stringify(projectList));
         display.allProjects();
         display.projectList();
         window.classList.add("hide")

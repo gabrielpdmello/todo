@@ -2,6 +2,7 @@ import { display } from "./display";
 import { removeAllChild } from "./removeAllChild";
 import { addEventShowWindow } from "./addEventShowWindow.js";
 import { format, parse, parseISO} from "date-fns";
+import { projectList } from "./projectList.js";
 
 function displayNewTaskMenu(project, button, taskEdit = false) {
     const window = document.querySelector(".window");
@@ -104,6 +105,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
                     descriptionTextarea.value = "No description."
                 }
                 taskEdit.description = descriptionTextarea.value;
+                localStorage.setItem("projectList", JSON.stringify(projectList));
                 display.currentTab();
                 window.classList.add("hide");
             }
@@ -117,6 +119,7 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
 
                 const formatDate = format(parseISO(dueDateInput.value), "dd/MM/yyyy");
                 project.newTask(titleInput.value, descriptionTextarea.value, formatDate, prioritySelect.value);
+                localStorage.setItem("projectList", JSON.stringify(projectList));
                 display.project(project);
                 window.classList.add("hide");
             }

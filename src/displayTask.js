@@ -1,5 +1,6 @@
 import { removeTask } from "./removeTask";
 import { display } from "./display";
+import { projectList } from "./projectList";
 
 function displayTask(project, task, taskIndex, container) {
     const item = document.createElement("li");
@@ -51,9 +52,11 @@ function displayTask(project, task, taskIndex, container) {
         if (task.isDone === true) {
             checkbox.checked = true;
             title.classList.add("task-title--done");
+            localStorage.setItem("projectList", JSON.stringify(projectList));
         } else {
             checkbox.checked = false;
             title.classList.remove("task-title--done");
+            localStorage.setItem("projectList", JSON.stringify(projectList));
         }
     })
     
