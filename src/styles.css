@@ -105,6 +105,8 @@ h1 {
     width: 100%;
     text-align: start;
     text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .project-list-button--new-project {
@@ -146,6 +148,9 @@ h1 {
 .project-title {
     font-size: 1.4rem;
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
 }
 
 .project-buttons {

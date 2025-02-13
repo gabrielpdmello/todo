@@ -36,6 +36,7 @@ function displayProjectList() {
         const projectButton = document.createElement("button");
         projectButton.classList.add("project-list-button");
         projectButton.textContent = project.title;
+        projectButton.title = project.title;
         
         projectButton.addEventListener("click", () => {
             display.setCurrentTab(()=> {
