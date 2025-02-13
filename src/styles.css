@@ -104,6 +104,7 @@ h1 {
     font-size: inherit;
     width: 100%;
     text-align: start;
+    text-wrap: nowrap;
 }
 
 .project-list-button--new-project {
@@ -167,6 +168,8 @@ h1 {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    text-wrap: nowrap;
+
 }
 
 .button--primary:hover {
