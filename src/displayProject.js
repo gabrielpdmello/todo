@@ -32,7 +32,7 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
         })
 
         const editButton = document.createElement("button");
-        editButton.classList.add("empty-button");
+        editButton.classList.add("icon-container");
         const editIcon = document.createElement("span");
         editIcon.classList.add("edit-icon");
 
@@ -41,7 +41,7 @@ function displayProject(project, emptyContainer = true, projectButtons = true) {
         });
         
         const deleteButton = document.createElement("button");
-        deleteButton.classList.add("empty-button");
+        deleteButton.classList.add("icon-container");
         const deleteIcon = document.createElement("span");
         deleteIcon.classList.add("delete-icon");
 

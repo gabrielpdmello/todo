@@ -13,21 +13,21 @@ function displayTask(project, task, taskIndex, container) {
     dueDate.textContent = task.dueDate;
     dueDate.classList.add("due-date");
     const viewMoreButton = document.createElement("button");
-    viewMoreButton.classList.add("empty-button");
+    viewMoreButton.classList.add("icon-container");
     const viewMoreIcon = document.createElement("span");
     viewMoreIcon.classList.add("view-more-icon");
     viewMoreButton.addEventListener("click", ()=> {
         display.viewMoreMenu(project, task, taskIndex, viewMoreButton);
     })
     const editButton = document.createElement("button");
-    editButton.classList.add("empty-button");
+    editButton.classList.add("icon-container");
     const editIcon = document.createElement("span");
     editIcon.classList.add("edit-icon");
     editButton.addEventListener("click", ()=> {
         display.newTaskMenu(project, editButton, task);
     })
     const deleteButton = document.createElement("button");
-    deleteButton.classList.add("empty-button");
+    deleteButton.classList.add("icon-container");
     const deleteIcon = document.createElement("span");
     deleteIcon.classList.add("delete-icon");
     deleteButton.addEventListener("click", ()=> {

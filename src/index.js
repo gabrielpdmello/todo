@@ -1,5 +1,6 @@
 import "./styles.css";
 import { display } from "./display.js";
+import { toggleProjectList } from "./toggleProjectList.js";
 
 const window = document.querySelector(".window");
 
@@ -12,6 +13,7 @@ const window = document.querySelector(".window");
   })
 })
 
+toggleProjectList();
 display.projectList();
 display.setCurrentTab(display.allProjects);
 display.currentTab();
