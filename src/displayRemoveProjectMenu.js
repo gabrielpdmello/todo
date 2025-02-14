@@ -1,7 +1,7 @@
 import { projectList } from "./projectList";
 import { removeAllChild } from "./removeAllChild";
 import { display } from "./display";
-import { addEventShowWindow } from "./addEventShowWindow.js";
+import { windowPopUp } from "./windowPopUp.js";
 
 function displayRemoveProjectMenu(project, button) {
     const projectIndex = projectList.lastIndexOf(project);
@@ -47,7 +47,7 @@ function displayRemoveProjectMenu(project, button) {
     windowForm.appendChild(buttonContainer);
     window.appendChild(windowForm);
 
-    addEventShowWindow(button);
+    windowPopUp.show(button);
 }
 
 export {displayRemoveProjectMenu};

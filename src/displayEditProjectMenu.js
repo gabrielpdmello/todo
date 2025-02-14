@@ -1,6 +1,6 @@
 import { removeAllChild } from "./removeAllChild.js";
 import { display } from "./display.js";
-import { addEventShowWindow } from "./addEventShowWindow.js";
+import { windowPopUp } from "./windowPopUp.js";
 import { projectList } from "./projectList.js";
 
 function displayEditProjectMenu(project, button) {
@@ -49,7 +49,7 @@ function displayEditProjectMenu(project, button) {
     windowForm.appendChild(doneButton);
     window.appendChild(windowForm);
 
-    addEventShowWindow(button);
+    windowPopUp.show(button);
 }
 
 export {displayEditProjectMenu}

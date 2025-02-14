@@ -1,18 +1,9 @@
 import "./styles.css";
 import { display } from "./display.js";
 import { toggleProjectList } from "./toggleProjectList.js";
+import { windowPopUp } from "./windowPopUp.js";
 
-const window = document.querySelector(".window");
-
-// hide window when user clicks or tabs outside of window
-["click", "focusin", "blur"].forEach(ev => {
-  document.addEventListener(ev, e => {
-    if (!window.contains(e.target) && !window.classList.contains("hide")) {
-      window.classList.add("hide");
-    }
-  })
-})
-
+windowPopUp.hide();
 toggleProjectList();
 display.projectList();
 display.setCurrentTab(display.allProjects);

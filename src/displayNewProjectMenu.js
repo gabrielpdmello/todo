@@ -2,7 +2,7 @@ import { newProject } from "./newProject.js";
 import { removeAllChild } from "./removeAllChild.js";
 import { projectList } from "./projectList.js";
 import { display } from "./display.js";
-import { addEventShowWindow } from "./addEventShowWindow.js";
+import { windowPopUp } from "./windowPopUp.js";
 
 function displayNewProjectMenu(button) {
     const window = document.querySelector(".window");
@@ -58,7 +58,7 @@ function displayNewProjectMenu(button) {
     windowForm.appendChild(newProjectButton);
     window.appendChild(windowForm);
 
-    addEventShowWindow(button);
+    windowPopUp.show(button);
 }
 
 export {displayNewProjectMenu}

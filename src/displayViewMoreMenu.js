@@ -1,6 +1,6 @@
 import { removeAllChild } from "./removeAllChild";
 import { display } from "./display";
-import { addEventShowWindow } from "./addEventShowWindow.js";
+import { windowPopUp } from "./windowPopUp.js";
 import { projectList } from "./projectList.js";
 
 function displayViewMoreMenu(project, task, taskIndex, button) {
@@ -81,7 +81,7 @@ function displayViewMoreMenu(project, task, taskIndex, button) {
     window.appendChild(priority);
     window.appendChild(rowWrapper);
 
-    addEventShowWindow(button);
+    windowPopUp.show(button);
 }
 
 export {displayViewMoreMenu}
