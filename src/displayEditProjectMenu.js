@@ -25,6 +25,9 @@ function displayEditProjectMenu(project, button) {
     projectTitleInput.setAttribute("type", "text");
     projectTitleInput.setAttribute("id", "project-title");
     projectTitleInput.value = project.title;
+    projectTitleInput.setAttribute("placeholder","must be 1-50 characters long");
+    projectTitleInput.setAttribute("minlength", "1");
+    projectTitleInput.setAttribute("maxlength", "50");
     const doneButton = document.createElement("button");
     doneButton.classList.add("done-button");
     doneButton.classList.add("button--primary");

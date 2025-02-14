@@ -25,6 +25,9 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
     titleInput.required = true;
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("id", "title");
+    titleInput.setAttribute("placeholder","must be 1-50 characters long");
+    titleInput.setAttribute("minlength", "1");
+    titleInput.setAttribute("maxlength", "50");
 
     const titleWrapper = document.createElement("span");
     titleWrapper.classList.add("window-wrapper-100");
@@ -74,6 +77,8 @@ function displayNewTaskMenu(project, button, taskEdit = false) {
 
     const descriptionTextarea = document.createElement("textarea");
     descriptionTextarea.setAttribute("id", "description");
+    descriptionTextarea.setAttribute("placeholder", "max length: 1500 characters");
+    descriptionTextarea.setAttribute("maxlength", "1500");
 
     const descriptionWrapper = document.createElement("span");
     descriptionWrapper.classList.add("window-wrapper-100");
