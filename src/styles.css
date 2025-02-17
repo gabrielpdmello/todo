@@ -51,14 +51,11 @@ html {
 }
 
 body {
-    display: grid;
-    grid-template: fit-content(8%) auto / 25% auto;
     height: 100%;
     position: relative;
 }
 
 header {
-    grid-column: 1 / 3;
     text-align: center;
     background-color: var(--primary-color);
     padding: 1rem;
@@ -66,28 +63,33 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: fit-content;
 }
 
 h1 {
     color: white;
 }
 
+.content {
+    display: flex;
+    font-size: 0;
+    position: relative;
+}
+
 .project-list-container {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
     display: inline-block;
     background-color: var(--secondary-color);
     height: 100%;
+    min-width: fit-content;
+    width: 25%;
     padding: 1rem;
     overflow: auto;
-}
+    font-size: 1rem;
 
-.project-list-hide {
-    grid-template-columns: 0% auto;
 }
 
 .project-list-container-title {
-    text-align: center;
+    margin: 0 0 1rem 0;
 }
 
 .project-list {
@@ -96,7 +98,7 @@ h1 {
 }
 
 .project-list-button {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
     margin-bottom: 0.6rem;
     background-color: var(--secondary-color);
@@ -123,12 +125,15 @@ h1 {
 }
 
 .task-container {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    display: inline-block;
     height: 100%;
+    width: 75%;
     background-color: var(--task-container-bg-color);
     padding: 1rem;
     overflow: auto;
+    font-size: 1rem;
+    flex: 1;
+
 }
 
 .task-container-title {
@@ -137,6 +142,7 @@ h1 {
 
 .project-container {
     margin-bottom: 1rem;
+    padding-left: 1rem;
 }
 
 .project-header {
@@ -184,8 +190,8 @@ h1 {
 
 .task-list {
     list-style: none;
-    padding-left: 3rem;
     margin-bottom: 3rem;
+    padding: 1rem;
 }
 
 .task-item {
@@ -205,6 +211,8 @@ h1 {
 .task-title {
     display: inline-block;
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .task-title--done {
@@ -272,7 +280,7 @@ h1 {
     cursor: pointer;
 }
 
-.project-list-toggle {
+.project-list-toggle-button {
     border: none;
     border-radius: 5px;
     line-height: 0;
@@ -436,4 +444,24 @@ h1 {
 
 .all-tasks-title {
     margin-bottom: 1rem;
+}
+
+/* mobile */
+@media screen and (max-width: 50em) {
+    .project-list-container {
+        display: none;
+    }
+
+    .task-container {
+        width: 100%;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.project-list-show {
+    display: inline-block;
+    width: 100%;
 }
