@@ -451,6 +451,8 @@ h1 {
 @media screen and (max-width: 50em) {
     .project-list-container {
         width: 0;
+        animation: var(--sidebar-transition-duration) project-list-toggle-hide;
+        animation-fill-mode: forwards;
     }
 
     .task-container {
@@ -467,8 +469,22 @@ h1 {
 
 .project-list-hide {
     width: 0;
+    animation: var(--sidebar-transition-duration) project-list-toggle-hide;
+    animation-fill-mode: forwards;
 }
 
 .project-list-show {
     width: 100%;
+    visibility: visible;
+    animation: none;
+}
+
+@keyframes project-list-toggle-hide {
+    99% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
 }

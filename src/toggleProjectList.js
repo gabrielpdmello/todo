@@ -10,7 +10,7 @@ const toggleProjectList = function() {
             projectListContainer.classList.remove("project-list-show");
             taskContainer.classList.remove("hide");
         } else if (jmediaquery.matches) {
-            projectListContainer.classList.remove("hide");
+            projectListContainer.classList.remove("project-list-hide");
         }
     });
 
