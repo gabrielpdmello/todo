@@ -1,6 +1,7 @@
 import { removeAllChild } from "./removeAllChild.js";
 import { projectArray } from "./projectArray.js";
 import { displayMenu } from "./displayMenu.js";
+import { sortProjects } from "./sortProjects.js";
 
 /* 
     displays parts of the website, such as sidebar and main content container,
@@ -119,18 +120,7 @@ const displayTab = (function() {
 
     const projectList = function() {
         const projectArrayElement = document.querySelector(".project-list");
-        
-        // sorts the objects based on its title value. case-insensitive
-        projectArray.sort((a, b) => {
-            if (a.title.toLowerCase() < b.title.toLowerCase()) {
-                return -1
-            }
-            if (a.title.toLowerCase() > b.title.toLowerCase()) {
-                return 1
-            }
-            return 0
-        })
-
+        sortProjects()
         removeAllChild(projectArrayElement);
 
         const allTasksItem = document.createElement("li");
