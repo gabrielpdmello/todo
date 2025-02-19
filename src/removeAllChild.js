@@ -1,5 +1,5 @@
 // removes every child of the container
-function removeAllChild(container) {
+const removeAllChild = function (container) {
     while(container.lastChild) {
         container.removeChild(container.lastChild);
     }

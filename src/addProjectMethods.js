@@ -1,6 +1,7 @@
 import { projectArray } from "./projectArray";
 
-const addProjectMethods = function (project, taskList) {    
+// add project methods when loading the projects array from local storage
+const addProjectMethods = function (project, taskList) {
     project.newTask = function(title, description, dueDate, priority) {
         let isDone = false;
         taskList.push({title, description, dueDate, priority, isDone});

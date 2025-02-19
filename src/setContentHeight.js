@@ -1,3 +1,4 @@
+// makes sure exactly 100% of the page height is used
 const setContentHeight = function() {
     const header = document.querySelector("header");
     const content = document.querySelector(".content");

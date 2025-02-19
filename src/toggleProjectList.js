@@ -1,3 +1,7 @@
+/* 
+    toggles the project list sidebar. It has two behaviours: when it matches the
+    media query, and when it doesn't
+*/
 const toggleProjectList = function() {
     const menuButton = document.querySelector(".project-list-toggle-button");
     const projectListContainer = document.querySelector(".project-list-container");
