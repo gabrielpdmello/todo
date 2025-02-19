@@ -1,7 +1,8 @@
 import { removeAllChild } from "./removeAllChild.js";
 import { projectArray } from "./projectArray.js";
-import { displayMenu } from "./displayMenu.js";
+import { displayWindow } from "./displayWindow.js";
 import { sortProjects } from "./sortProjects.js";
+import { toggleTaskIsDone } from "./toggleTaskIsDone.js";
 
 /* 
     displays parts of the website, such as sidebar and main content container,
@@ -14,8 +15,6 @@ const displayTab = (function() {
     const currentTab = function() {
         if (current) {
             current();
-        } else {
-            alert(`Error: tab ${current}`);
         }
     }
 
@@ -68,7 +67,7 @@ const displayTab = (function() {
             addIcon.classList.add("white-icon");
             newTaskButton.appendChild(addIcon);
             newTaskButton.addEventListener("click", ()=> {
-                displayMenu.newTaskMenu(project, newTaskButton);
+                displayWindow.newTaskMenu(project, newTaskButton);
             })
 
             const editButton = document.createElement("button");
@@ -77,7 +76,7 @@ const displayTab = (function() {
             editIcon.classList.add("edit-icon");
 
             editButton.addEventListener("click", ()=> {
-                displayMenu.editProjectMenu(project, editButton);
+                displayWindow.editProjectMenu(project, editButton);
             });
             
             const deleteButton = document.createElement("button");
@@ -86,7 +85,7 @@ const displayTab = (function() {
             deleteIcon.classList.add("delete-icon");
 
             deleteButton.addEventListener("click", ()=> {
-                displayMenu.removeProjectMenu(project, deleteButton);
+                displayWindow.removeProjectMenu(project, deleteButton);
             })
             
             buttonContainer.appendChild(newTaskButton);
@@ -164,7 +163,7 @@ const displayTab = (function() {
         newProjectMenuButton.appendChild(addIcon);
         newProjectMenuItem.appendChild(newProjectMenuButton);
         newProjectMenuButton.addEventListener("click", ()=> {
-            displayMenu.newProjectMenu(newProjectMenuButton);
+            displayWindow.newProjectMenu(newProjectMenuButton);
         })
         projectArrayElement.appendChild(newProjectMenuItem);
     }
@@ -184,14 +183,14 @@ const displayTab = (function() {
         const viewMoreIcon = document.createElement("span");
         viewMoreIcon.classList.add("view-more-icon");
         viewMoreButton.addEventListener("click", ()=> {
-            displayMenu.viewMoreMenu(project, task, taskIndex, viewMoreButton);
+            displayWindow.viewMoreMenu(project, task, taskIndex, viewMoreButton);
         })
         const editButton = document.createElement("button");
         editButton.classList.add("icon-container");
         const editIcon = document.createElement("span");
         editIcon.classList.add("edit-icon");
         editButton.addEventListener("click", ()=> {
-            displayMenu.newTaskMenu(project, editButton, task);
+            displayWindow.newTaskMenu(project, editButton, task);
         })
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("icon-container");
@@ -214,19 +213,7 @@ const displayTab = (function() {
 
         checkbox.setAttribute("type", "checkbox");
 
-        // toggle isDone value
-        checkbox.addEventListener("click", () => {
-            task.isDone = !task.isDone;
-            if (task.isDone === true) {
-                checkbox.checked = true;
-                title.classList.add("task-title--done");
-                localStorage.setItem("projectArray", JSON.stringify(projectArray));
-            } else {
-                checkbox.checked = false;
-                title.classList.remove("task-title--done");
-                localStorage.setItem("projectArray", JSON.stringify(projectArray));
-            }
-        })
+        toggleTaskIsDone(task, checkbox, title);
         
         if (task.isDone === true) {
             checkbox.checked = true;
