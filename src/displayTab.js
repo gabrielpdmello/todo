@@ -3,6 +3,7 @@ import { projectArray } from "./projectArray.js";
 import { displayWindow } from "./displayWindow.js";
 import { sortProjects } from "./sortProjects.js";
 import { toggleTaskIsDone } from "./toggleTaskIsDone.js";
+import { toggleProjectList } from "./toggleProjectList.js";
 
 /* 
     displays parts of the website, such as sidebar and main content container,
@@ -122,6 +123,8 @@ const displayTab = (function() {
         sortProjects()
         removeAllChild(projectArrayElement);
 
+        let jmediaquery = window.matchMedia("(max-width: 50em)");
+
         const allTasksItem = document.createElement("li");
         const allTasksButton = document.createElement("button");
         allTasksButton.textContent = "All projects";
@@ -129,6 +132,11 @@ const displayTab = (function() {
         allTasksButton.addEventListener("click", () => {
             displayTab.setCurrentTab(()=> {
                 displayTab.allProjects();
+                if (jmediaquery.matches) {
+                    const button = document.querySelector(".project-list-toggle-button");
+                    button.dispatchEvent(new Event("click", {bubbles: true}));
+                }
+
             });
             displayTab.currentTab();
         });
@@ -147,6 +155,10 @@ const displayTab = (function() {
                     displayTab.project(project);
                 });
                 displayTab.currentTab();
+                if (jmediaquery.matches) {
+                    const button = document.querySelector(".project-list-toggle-button");
+                    button.dispatchEvent(new Event("click", {bubbles: true}));
+                }
             });
             projectItem.appendChild(projectButton);
             projectArrayElement.appendChild(projectItem);
@@ -164,6 +176,10 @@ const displayTab = (function() {
         newProjectMenuItem.appendChild(newProjectMenuButton);
         newProjectMenuButton.addEventListener("click", ()=> {
             displayWindow.newProjectMenu(newProjectMenuButton);
+            if (jmediaquery.matches) {
+                const button = document.querySelector(".project-list-toggle-button");
+                button.dispatchEvent(new Event("click", {bubbles: true}));
+            }
         })
         projectArrayElement.appendChild(newProjectMenuItem);
     }

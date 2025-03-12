@@ -85,6 +85,7 @@ h1 {
     overflow: auto;
     font-size: 1rem;
     transition: width var(--sidebar-transition-duration);
+    z-index: 1
 }
 
 .project-list-container-title {
@@ -458,8 +459,12 @@ h1 {
     .task-container {
         transition: none;
         position: absolute;
-        z-index: -1;
         width: 100%;
+    }
+
+    .window {
+        width: 90%;
+        padding: 1rem;
     }
 }
 
